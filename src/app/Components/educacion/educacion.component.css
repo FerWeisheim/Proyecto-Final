@@ -1,0 +1,18 @@
+.educacion .row p{
+    border-left: 2px solid rgb(255, 45, 45);
+    left: 5px;
+    position: relative;
+    margin-bottom: 10px;
+    
+    }
+    
+    .educacion .row p:before{
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: rgb(255, 45, 45);
+        position: absolute;
+        margin-top: -6px;
+        left: -6.2px;
+        border-radius: 10px;
+    }

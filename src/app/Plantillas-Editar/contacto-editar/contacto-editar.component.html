@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+      <h3>Modificar Datos</h3>
+    </div>
+    <div class="card-body">
+      <form action="" [formGroup]="contacto">
+      
+        <label class="col-sm-3 col-form-label is-required">correo </label>
+        <input type="email" name="correo" id="" [(ngModel)]="contact.correo" class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="correo" value="">
+
+        <label class="col-sm-3 col-form-label is-required">telefono</label>
+        <input type="number" name="telefono" id="" [(ngModel)]="contact.telefono" class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="telefono" value="">
+
+        <label class="col-sm-3 col-form-label is-required">linkedin</label>
+        <input type="text" name="linkedin" id="" [(ngModel)]="contact.linkedin" class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="linkedin" value="">
+
+        <label class="col-sm-3 col-form-label is-required">discord</label>
+        <input type="text" name="discord" id="" [(ngModel)]="contact.discord" class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="discord" value="">
+          
+        <button class="btn btn-danger" [routerLink]="['home']" (click)="actualizar(contact)" >Actualizar</button>
+        <button class="btn btn-secondary" [routerLink]="['home']">CANCELAR
+        </button>
+      </form>
+    </div>
+  </div> 
