@@ -5,79 +5,30 @@
             <div class="d-flex justify-content-between">
                 <h2>Educacion</h2>
                 <div class="botones">
-                    <i class="fas fa-plus-circle" data-bs-toggle="modal" data-bs-target="#editEducation"></i>
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-plus-circle" [routerLink]="['/agregar/educacion']"></i>
+                   
                 </div>
             </div>
         </div>
-        <div class="d-inline-flex p-2 bd-highlight ">
+        <div >
             <div class="educacion ">
-                <div class="row">
-                    <div class="col-sm-3">
+                <div class="row" >
+                    <div class="col-sm-3" *ngFor="let edu of educacion">
                         <div class="d-flex justify-content-between">
-                           <h6>Colegio</h6>
+                           <h6>{{edu.nombre}}</h6>
                             <div class=" botones">
-                                <i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editEducation"></i>
-                                <i class="fas fa-trash-alt" data-bs-toggle="modal" data-bs-target="#deleteEducation" ></i>
+                                <i class="fas fa-edit" ></i>
+                                <i class="fas fa-trash-alt"></i>
                             </div>
                         </div>
                         <p>
-                            hola asdasd
-                            asdasdasdasdasdasdasda
-                            asdasdasdasdasdasd
-                         
-                        </p>
-                        <h6>2014-2016</h6>
+                        descripcion: {{edu.descripcion}}
+                        titulo:      {{edu.titulo}}
+                        inicio:      {{edu.fechaIni|date :'dd-MM-YYYY'}}
+                        fin:         {{edu.fechaFin|date :'dd-MM-YYYY'}}
+                     </p>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-between">
-                           <h6>Colegio</h6>
-                            <div class=" botones">
-                                <i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editEducation"></i>
-                                <i class="fas fa-trash-alt" data-bs-toggle="modal" data-bs-target="#deleteEducation" ></i>
-                            </div>
-                        </div>
-                        <p>
-                            hola asdasd
-                            asdasdasdasdasdasdasda
-                            asdasdasdasdasdasd
-                         
-                        </p>
-                        <h6>2014-2016</h6>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-between">
-                           <h6>Colegio</h6>
-                            <div class=" botones">
-                                <i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editEducation"></i>
-                                <i class="fas fa-trash-alt" data-bs-toggle="modal" data-bs-target="#deleteEducation" ></i>
-                            </div>
-                        </div>
-                        <p>
-                            hola asdasd
-                            asdasdasdasdasdasdasda
-                            asdasdasdasdasdasd
-                         
-                        </p>
-                        <h6>2014-2016</h6>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-between">
-                           <h6>Colegio</h6>
-                            <div class=" botones">
-                                <i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editEducation"></i>
-                                <i class="fas fa-trash-alt" data-bs-toggle="modal" data-bs-target="#deleteEducation" ></i>
-                            </div>
-                        </div>
-                        <p>
-                            hola asdasd
-                            asdasdasdasdasdasdasda
-                            asdasdasdasdasdasd
-                         
-                        </p>
-                        <h6>2014-2016</h6>
-                    </div>
-                </div>
+                </div> 
             </div> 
         </div>
     </div>

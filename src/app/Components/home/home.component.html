@@ -8,19 +8,21 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
                         <div class="botones">
-                            <i class="fas fa-edit">
+                            <i class="fas fa-edit" [routerLink]="['/editar/persona']">
                             </i>
                             <i class="fas fa-trash-alt"></i>
                         </div>
                     </div>
-                    <img src="../../../assets/img/yo.jpg" alt="" id="yo" class="circulo">
+                    <img src="{{person.img}}" alt="" id="yo" class="circulo">
                     <div class="datos">
                         <h5 class="card-title"></h5>
                         <p class="card-text">{{person.nombre}} {{person.apellido}}</p>
                         <p class="card-text">{{person.titulo}}</p>
                     </div>
+                    
                 </div>
             </div>
+            <i class="fas fa-trash-alt" [routerLink]="['/editar/persona']"></i>
         </div>
     </div>
 </section>

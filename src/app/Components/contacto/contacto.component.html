@@ -1,15 +1,16 @@
+<app-delete></app-delete>
 <div class="container-fluid">
   <section id="contacto" class="d-flex justify-content-end">
       <div class="card">
           <div class="row">
+            <h4>Contacto</h4>
               <div *ngIf="contactos.length>0;else n">
                   <div class="col-sm-12"  *ngFor="let c of contactos">
                       <div class="d-flex justify-content-between">
                           <h6>Contacto</h6>
                           <div class=" botones">
                               <i class="fas fa-edit" [routerLink]="['/editar/contacto']" (click)="editar(c)"></i>
-                              <i class="fas fa-trash-alt" data-bs-toggle="modal"
-                                  data-bs-target="#deleteEducation"></i>
+                              <i class="fas fa-trash-alt"  (click)="borrar(c)"></i>
                           </div>
                       </div>
                       <p>
@@ -26,9 +27,11 @@
 
       <ng-template #n>
           <div class="container-fluid">
-          <i class="fas fa-plus" [routerLink]="['/editar/contacto']" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          </i>
+            <div class="d-flex justify-content-end">
+            <i class="fas fa-plus-circle" [routerLink]="['/agregar/contacto']" >
+            </i>
           </div>
+        </div>
       </ng-template>
   </section>
   </div>

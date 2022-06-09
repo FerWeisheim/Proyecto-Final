@@ -11,7 +11,7 @@ import { ContactoServiceService } from 'src/app/Service/contacto-service.service
   ]
 })
 export class ContactoComponent implements OnInit {
-
+  u:Contacto=new Contacto(0,"",0,"","");
   contactos:Contacto[]=[]; 
   // trackByIdentity = (index: number, item: any) => item;
   constructor(private contactoS:ContactoServiceService,
@@ -48,8 +48,17 @@ discord:['', Validators.required]
     
   }
 
-  borrar(id:number){
-    this.contactoS.deletePorId(id).subscribe(data=>this.contactos);
-  }
+  borrar(id:Contacto){
+    if(id){
+      let aceptar = confirm("DESEA BORRAR?");
+      if(aceptar){
+         this.contactoS.deletePorId(id.id!).subscribe(data=>this.u=data);
+        location.reload();
+      }else{
+        this.router.navigate(['/home']);
+      }
+    }
+    
+   }
   
 }

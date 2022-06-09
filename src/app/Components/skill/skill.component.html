@@ -22,8 +22,8 @@
                                 </div>
                                 <div *ngFor="let ski of skill">
                                     <div class="d-flex justify-content-between">
-                                        <p>{{ski.nombre}}</p>
-                                        <div class=" botones">
+                                    <p><img src="{{ski.img}}" class="circulo"></p>
+                                    <div class=" botones">
                                             <i class="fas fa-edit" [routerLink]="['/editar/skill']" (click)="enviar(ski)"></i>
                                             <i class="fas fa-trash-alt"></i>
                                         </div>

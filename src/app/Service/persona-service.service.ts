@@ -13,7 +13,9 @@ export class PersonaServiceService {
   getPersona():Observable<Persona[]>{
     return this.http.get<Persona[]>("http://localhost:8080/personas/traer");
   }
-
+agregar(persona:Persona){
+  return this.http.post<Persona>("http://localhost:8080/persona/crear",persona);
+ }
 }
 
 

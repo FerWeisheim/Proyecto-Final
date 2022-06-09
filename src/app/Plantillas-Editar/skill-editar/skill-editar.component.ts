@@ -10,7 +10,7 @@ import { SkillServiceService } from 'src/app/Service/skill-service.service';
   styleUrls: ['./skill-editar.component.css']
 })
 export class SkillEditarComponent implements OnInit {
-  skill:Skill= new Skill(0,"",0);
+  skill:Skill= new Skill(0,"",0,"");
  
   constructor(private form : FormBuilder,private skillS:SkillServiceService,private router:Router) { 
      let id =localStorage.getItem("id");

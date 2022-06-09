@@ -1,21 +1,38 @@
 <div class="card">
-    <div class="card-header">
-      <h3>Agregar skill</h3>
-    </div>
-    <div class="card-body">
-      <form [formGroup]="skills">
-        
-        
+  <div class="card-header">
+    <h3>Agregar skill</h3>
+  </div>
+  <div class="card-body">
+     <form [formGroup]="skills">
         <label class="col-sm-3 col-form-label is-required"> nombre </label>
         <input type="email" name="nombre" id=""  class="form-control" placeholder=""
         aria-describedby="helpId" formControlName="nombre" value="">
-
+        <label class="col-sm-3 col-form-label is-required"> imagen </label>
+         <input type="file" alife-file-to-base64 (onFileChanged)="obtener($event)" class="form-control" formControlName="img" placeholder="" >
+        <div>
+        <img widt="100px" [src]="basee" >   
+        </div>
         <label for="customRange1" class="form-label">nivel</label>
         <input type="range" class="form-range"  formControlName="nivel" id="customRange1">
-
-        <button class="btn btn-danger" [routerLink]="['home']"  (click)="enviar()">Actualizar</button>
+        <button class="btn btn-danger" [routerLink]="['home']"  (click)="enviar()">Agregar</button>
         <button class="btn btn-secondary" [routerLink]="['home']">CANCELAR
         </button>
-      </form>
-    </div>
-  </div> 
+      </form>   
+     <!-- <form action="">
+       <div class="form-group"> 
+        <label for="">Nombres:</label>
+         <input  [(ngModel)]="skill.nombre" name="nombre"
+          type="text" class="form-control" > 
+        </div>
+        <div class="form-group"> 
+          <label for="">img:</label>
+           <input type="file"  alife-file-to-base64 (onFileChanged)="obtener($event)" name="img" [(ngModel)]="skill.img" class="form-control">  
+          </div>
+         <div class="form-group"> 
+            <label for="">Nivel:</label>
+            <input type="range" class="form-range"  [(ngModel)]="skill.nivel"  id="customRange1" name="nivel">
+            </div>
+            <button class="btn btn-danger" [routerLink]="['home']"  (click)="enviar()">Agregar</button> 
+    </form>   -->
+  </div>
+</div>
