@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {SkillServiceService} from 'src/app/Service/skill-service.service'
 import { Skill } from 'src/app/Interface/SkilInterface';
+import { Route, Router } from '@angular/router';
 
 
 
@@ -16,32 +17,34 @@ export class SkillAgregarComponent implements OnInit {
   skill:Skill= new Skill(0,"",0,"");
   a:string="";
   basee:string="";
-  constructor(private form:FormBuilder,private skillS:SkillServiceService) { }
+  constructor(private form:FormBuilder,private skillS:SkillServiceService,private route:Router) { 
+        
+  }
   
+  
+      obtener(e:any){  
+         
+        // this.skill.img=e[0].base64
+         this.a=e[0].base64;
+        // console.log(this.a)
+      // this.skills.value;
+      this.skills.get('img')?.setValue(this.a);
+      }
+
   skills:FormGroup=this.form.group({
       nombre:['',Validators.required],
      nivel:['', Validators.required],
-    img:[],
+      img: []
      })
   ngOnInit(): void {
-    
+    // this.skills.get('img')?.setValue(this.a);
   }
 
   
-
-    obtener(e:any){  
-       
-       this.skill.img=e[0].base64
-    //  this.a =e[0].base64;
-    // this.skills.value;
-    // this.skills.get('img')?.setValue(this.a);
-    }
     
 enviar(){
-  // this.skill.img=this.a;
-  this.skillS.agregar(this.skills.value).subscribe(data=>this.skill=data);
-  // this.skillS.agregar(this.skills.value).subscribe(data=>this.skill=data);
-    console.log(this.skill.img);
+ this.skillS.agregar(this.skills.value).subscribe(data=>this.skill=data);
+ this.route.navigate(['**']);
  }
 
 

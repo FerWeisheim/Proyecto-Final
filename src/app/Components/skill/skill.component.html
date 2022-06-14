@@ -16,11 +16,13 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h3>Tecnologias</h3>
+                                    <p></p>
                                     <div class="botones">
                                         <i class="fas fa-plus-circle" [routerLink]="['/agregar/skill']"></i>
                                     </div>
                                 </div>
                                 <div *ngFor="let ski of skill">
+                                    <p>{{ski.nombre}}</p>
                                     <div class="d-flex justify-content-between">
                                     <p><img src="{{ski.img}}" class="circulo"></p>
                                     <div class=" botones">
