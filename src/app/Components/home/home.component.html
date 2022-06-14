@@ -8,7 +8,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
                         <div class="botones">
-                            <i class="fas fa-edit" [routerLink]="['/editar/persona']">
+                            <i class="fas fa-edit" 
+                            (click)="editar(person)"
+                            [routerLink]="['/editar/persona']" >
                             </i>
                             <i class="fas fa-trash-alt"></i>
                         </div>
@@ -22,7 +24,7 @@
                     
                 </div>
             </div>
-            <i class="fas fa-trash-alt" [routerLink]="['/editar/persona']"></i>
+            <i class="fas fa-trash-alt" [routerLink]="['/agregar/persona']"></i>
         </div>
     </div>
 </section>

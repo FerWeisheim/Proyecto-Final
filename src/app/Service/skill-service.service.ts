@@ -16,7 +16,7 @@ agregar(skill:Skill){
   return this.http.post<Skill>("http://localhost:8080/tecnologia/crear",skill);
  }
  actualizar(skill:Skill){
-  return this.http.put<Skill>(`http://localhost:8080/tecnologia/editar/${skill.id}`,Skill);
+  return this.http.put<Skill>(`http://localhost:8080/tecnologia/editar/${skill.id}`,skill);
   }
   getPorId(id:number){
     return this.http.get<Skill>(`http://localhost:8080/tecnologia/traer/${id}`);

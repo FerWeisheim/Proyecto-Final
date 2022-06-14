@@ -16,6 +16,12 @@ export class PersonaServiceService {
 agregar(persona:Persona){
   return this.http.post<Persona>("http://localhost:8080/persona/crear",persona);
  }
+ getPorId(id:number){
+  return this.http.get<Persona>(`http://localhost:8080/persona/traer/${id}`);
+ }
+ actualizar(persona:Persona){
+  return this.http.put<Persona>(`http://localhost:8080/persona/editar/${persona.id}`,persona);
+  }
 }
 
 

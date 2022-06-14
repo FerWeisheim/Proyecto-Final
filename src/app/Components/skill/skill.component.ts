@@ -18,6 +18,7 @@ export class SkillComponent implements OnInit {
 
   enviar(ski:Skill):void{
    let id= localStorage.setItem("id",ski.id!.toString());
+  //  let img= localStorage.setItem("img",ski.img.toString());
    console.log(id);
   }
 

@@ -15,4 +15,8 @@ persona:Persona[]=[];
     this.personaService.getPersona().subscribe(data=>this.persona=data);
   }
 
+  editar(per:Persona){
+    
+    let id= localStorage.setItem("id",per.id!.toString());
+  }
 }
