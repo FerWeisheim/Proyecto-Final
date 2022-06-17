@@ -28,7 +28,7 @@ persona:Persona = new Persona (0,"","","","");
   obtener(e:any){
     this.base=e[0].base64;
     this.persona.img=e[0].base64;
-  }
+  } 
   enviar(p:Persona){
   p.img=this.base;
     this.personaS.actualizar(p).subscribe(data=>this.persona=data);

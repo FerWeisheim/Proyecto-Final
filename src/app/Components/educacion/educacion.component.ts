@@ -25,7 +25,7 @@ export class EducacionComponent implements OnInit {
  
   educacion: Educacion[] = [];
   educa: Educacion = new Educacion(0, "", "", "", this.fechaIni, this.fechaFin);
-  modal: boolean = false;
+  // modal: boolean = false;
   ngOnInit(): void {
     this.educacionS.getEducacion().subscribe(data => this.educacion = data);
   this.educacio = this.form.group({
