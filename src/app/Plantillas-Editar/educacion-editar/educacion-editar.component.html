@@ -1,0 +1,42 @@
+ 
+
+ 
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="educacion">
+      
+                <label class="col-sm-3 col-form-label is-required"> nombre </label>
+                <input type="email" name="nombre" id="nombre"  class="form-control" placeholder=""
+                aria-describedby="helpId" formControlName="nombre" value="">
+                
+                <label class="col-sm-3 col-form-label is-required"> descripcion </label>
+                <input type="text"  name="descripcion" id=""  class="form-control" placeholder=""
+                  aria-describedby="helpId" formControlName="descripcion" value="">
+                 
+                 <label class="col-sm-3 col-form-label is-required"> titulo </label>
+                  <input type="text"  name="titulo" id=""  class="form-control" placeholder=""
+                    aria-describedby="helpId" formControlName="titulo" value="">
+        
+                    <label class="col-sm-3 col-form-label is-required"> fehca Inicio </label>
+                    <input type="date"  name="fechaIni" id=""  class="form-control" placeholder=""
+                      aria-describedby="helpId" formControlName="fechaIni" value="">
+                      
+                      <label class="col-sm-3 col-form-label is-required"> fehca Fin </label>
+                      <input type="date"  name="fechaFin" id="namet"  class="form-control" placeholder=""
+                        aria-describedby="helpId" formControlName="fechaFin" value="">
+        
+                <button class="btn btn-danger" [routerLink]="['home']"  (click)="enviar()">Agregar</button>
+                <button  class="btn btn-secondary" [routerLink]="['**']" >CANCELAR
+                </button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>   

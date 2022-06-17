@@ -9,7 +9,8 @@
                       <div class="d-flex justify-content-between">
                           <h6>Contacto</h6>
                           <div class=" botones">
-                              <i class="fas fa-edit" [routerLink]="['/editar/contacto']" (click)="editar(c)"></i>
+                              <i class="fas fa-edit"  (click)="openEdit(editarContacto,c)"></i>
+                              <!-- [routerLink]="['/editar/contacto']" (click)="editar(c)" va arriba -->
                               <i class="fas fa-trash-alt"  (click)="borrar(c)"></i>
                           </div>
                       </div>
@@ -22,9 +23,7 @@
                   </div>
               </div>
           </div>
-          
       </div>
-
       <ng-template #n>
           <div class="container-fluid">
             <div class="d-flex justify-content-end">
@@ -35,3 +34,38 @@
       </ng-template>
   </section>
   </div>
+  <!-- modal editar contacto -->
+<ng-template #editarContacto let-c="close" let-d="dismiss">
+
+    <div class="card">
+        <div class="card-header">
+          <h3>Modificar Datos Contacto</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="cont" >
+          
+            <label class="col-sm-3 col-form-label is-required">correo </label>
+            <input type="email" name="correo" id=""  class="form-control" placeholder=""
+              aria-describedby="helpId" formControlName="correo" value="">
+    
+            <label class="col-sm-3 col-form-label is-required">telefono</label>
+            <input type="number" name="telefono" id=""  class="form-control" placeholder=""
+              aria-describedby="helpId" formControlName="telefono" value="">
+    
+            <label class="col-sm-3 col-form-label is-required">linkedin</label>
+            <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
+              aria-describedby="helpId" formControlName="linkedin" value="">
+    
+            <label class="col-sm-3 col-form-label is-required">discord</label>
+            <input type="text" name="discord" id=""  class="form-control" placeholder=""
+              aria-describedby="helpId" formControlName="discord" value="">
+              
+            <button class="btn btn-danger" (click)="actualizar()"> Actualizar </button>
+            <button type="button" class="btn btn-danger" (click)="d('Cross click')"> Cerrar </button>
+            <!-- <button type="button btn-danger" class="btn-close" aria-label="Close" (click)="d('Cross click')"> </button> -->
+          </form>
+        </div>
+      </div> 
+
+    
+</ng-template>

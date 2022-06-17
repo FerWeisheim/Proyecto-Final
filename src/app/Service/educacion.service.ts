@@ -17,12 +17,12 @@ export class EducacionService {
    agregar(educacion:Educacion){
      return this.http.post<Educacion>("http://localhost:8080/educacion/crear",educacion);
   }
-  //  actualizar(skill:Skill){
-  //   return this.http.put<Skill>(`http://localhost:8080/tecnologia/editar/${skill.id}`,Skill);
-  //   }
-  //   getPorId(id:number){
-  //     return this.http.get<Skill>(`http://localhost:8080/tecnologia/traer/${id}`);
-  //    }
+  actualizar(educacion:Educacion){
+     return this.http.put<Educacion>(`http://localhost:8080/educacion/editar/${educacion.id}`,educacion);
+     }
+    getPorId(id:number){
+       return this.http.get<Educacion>(`http://localhost:8080/educacion/traer/${id}`);
+   }
      
 
 }

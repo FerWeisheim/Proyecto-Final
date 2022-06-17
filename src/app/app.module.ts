@@ -27,6 +27,10 @@ import { DeleteComponent } from './Delete/delete/delete.component';
 import { EducacionAgregarComponent } from './Plantillas-Editar/educacion-agregar/educacion-agregar.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { PersonaEditarComponent } from './Plantillas-Editar/persona-editar/persona-editar.component';
+import { EducacionEditarComponent } from './Plantillas-Editar/educacion-editar/educacion-editar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { PersonaEditarComponent } from './Plantillas-Editar/persona-editar/perso
     DeleteComponent,
     EducacionAgregarComponent,
     PersonaEditarComponent,
-   
+    EducacionEditarComponent,
+  
 
   ],
   imports: [
@@ -55,7 +60,10 @@ import { PersonaEditarComponent } from './Plantillas-Editar/persona-editar/perso
     HttpClientModule,
     ReactiveFormsModule,
    AlifeFileToBase64Module,
-   FormsModule
+   FormsModule,
+   NgbModule,
+
+
   ],
   providers: [ContactoServiceService,PersonaServiceService],
   bootstrap: [AppComponent]
