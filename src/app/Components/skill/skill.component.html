@@ -3,22 +3,21 @@
         <div class="card border-0">
             <div class="row">
                 <div class="d-flex justify-content-between">
-                    <h2>Skill</h2>
+                    <h2>Skills</h2>
                     <div class="botones">
                         <i class="fas fa-edit"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
                 </div>
-
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <h3>Tecnologias</h3>
+                                    <h3>Front-End</h3>
                                     <p></p>
                                     <div class="botones">
-                                        <i class="fas fa-plus-circle" [routerLink]="['/agregar/skill']"></i>
+                                        <i class="fas fa-plus-circle" (click)="openEdit(agregarSkill)" ></i>
                                     </div>
                                 </div>
                                 <div *ngFor="let ski of skill">
@@ -53,7 +52,6 @@
                             </div>
                         </div>
                         <!-- otra columna -->
-
                         <!-- <div class="col-sm-4">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -132,3 +130,29 @@
         </div>
     </section>
 </div>
+<ng-template #agregarSkill let-c="close" let-d="dismiss">
+    <div class="card">
+        <div class="card-header">
+        <h3>Agregar skill</h3>
+        </div>
+        <div class="card-body">
+    <form [formGroup]="skills">
+        <label class="col-sm-3 col-form-label is-required"> nombre </label>
+        <input type="email" name="nombre" id=""  class="form-control" placeholder=""
+        aria-describedby="helpId" formControlName="nombre" value="">
+        <label class="col-sm-3 col-form-label is-required"> imagen </label>
+         <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"  (onFileChanged)="obtener($event)" class="form-control"  placeholder="" >
+        <div>
+        <!-- <img widt="100px" [src]="basee" >    -->
+        </div>
+        <label for="customRange1" class="form-label">nivel</label>
+        <input type="range" class="form-range"  formControlName="nivel" id="customRange1">
+        <button class="btn btn-danger" [routerLink]="['home']"  (click)="guardar()">Agregar</button>
+        <button class="btn btn-secondary" (click)="d('Cross click')">CANCELAR
+        </button>
+      </form>   
+        </div>
+    </div>
+
+
+</ng-template>

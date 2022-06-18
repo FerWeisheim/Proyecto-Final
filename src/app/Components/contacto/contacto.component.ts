@@ -8,8 +8,7 @@ import { Educacion } from 'src/app/Interface/EducacionInterface';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
-  styles: [
-  ]
+  styleUrls: [ './contacto.style.css']
 })
 
 export class ContactoComponent implements OnInit {
@@ -39,19 +38,23 @@ cont!:FormGroup;
     }
   
 
-  guardar(a:Contacto){
-     this.contactoS.agregar(this.cont.value).subscribe(res=>this.contactos);
-    // console.log(this.cont.value);
+  // guardar(a:Contacto){
+  //    this.contactoS.agregar(this.cont.value).subscribe(res=>this.contactos);
+  //   // console.log(this.cont.value);
    
-  }
+  // }
   editar(c:Contacto):void{
     localStorage.setItem("id",c.id!.toString());
-   
     // this.router.navigate(["add"]);
-   
-    
   }
 
+  guardar(){
+    console.log(this.cont.value);
+    this.contactoS.agregar(this.cont.value).subscribe(res=>(this.u=res,
+      this.ngOnInit()
+      ));
+      this.modalService.dismissAll();
+  }
   borrar(id:Contacto){
     if(id){
       let aceptar = confirm("DESEA BORRAR?");
@@ -82,6 +85,14 @@ cont!:FormGroup;
 
     });
     console.log(this.cont.value.id)
+  }
+  openAgregar(targetModal: any){
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+      size: 'lg'
+  
+    });
   }
 
 
