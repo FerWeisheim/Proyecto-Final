@@ -32,3 +32,17 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.modal-header{
+    background-color: rgb(186, 251, 228);
+}
+.modal-body{
+    background-color: rgb(186, 251, 228);
+}
+.modal-footer{
+    background-color: rgb(186, 251, 228);
+}
+
+.boton{
+    margin: 10px;
+}

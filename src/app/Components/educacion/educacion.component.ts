@@ -20,12 +20,9 @@ export class EducacionComponent implements OnInit {
     private modalService: NgbModal, private form: FormBuilder,private route:Router) {
     config.backdrop = 'static';
     config.keyboard = false;
-
   }
- 
   educacion: Educacion[] = [];
   educa: Educacion = new Educacion(0, "", "", "", this.fechaIni, this.fechaFin);
-  // modal: boolean = false;
   ngOnInit(): void {
     this.educacionS.getEducacion().subscribe(data => this.educacion = data);
   this.educacio = this.form.group({

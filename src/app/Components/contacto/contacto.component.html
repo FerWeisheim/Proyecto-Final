@@ -35,67 +35,76 @@
   </section>
   </div>
   <!-- modal editar contacto -->
-<ng-template #editarContacto let-c="close" let-d="dismiss">
-    <div class="card">
-        <div class="card-header">
-          <h3>Modificar Datos Contacto</h3>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="cont" >
-          
-            <label class="col-sm-3 col-form-label is-required">correo </label>
-            <input type="email" name="correo" id=""  class="form-control" placeholder=""
-              aria-describedby="helpId" formControlName="correo" value="">
-    
-            <label class="col-sm-3 col-form-label is-required">telefono</label>
-            <input type="number" name="telefono" id=""  class="form-control" placeholder=""
-              aria-describedby="helpId" formControlName="telefono" value="">
-    
-            <label class="col-sm-3 col-form-label is-required">linkedin</label>
-            <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
-              aria-describedby="helpId" formControlName="linkedin" value="">
-    
-            <label class="col-sm-3 col-form-label is-required">discord</label>
-            <input type="text" name="discord" id=""  class="form-control" placeholder=""
-              aria-describedby="helpId" formControlName="discord" value="">
-              
-            <button class="btn btn-danger" (click)="actualizar()"> Actualizar </button>
-            <button type="button" class="btn btn-danger" (click)="d('Cross click')"> Cerrar </button>
-          </form>
-        </div>
-      </div> 
-</ng-template>
+    <ng-template #editarContacto let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Educacion</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="cont" >
+        <label class="col-sm-3 col-form-label is-required">correo </label>
+        <input type="email" name="correo" id=""  class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="correo" value="">
+  
+        <label class="col-sm-3 col-form-label is-required">telefono</label>
+        <input type="number" name="telefono" id=""  class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="telefono" value="">
+  
+        <label class="col-sm-3 col-form-label is-required">linkedin</label>
+        <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="linkedin" value="">
+  
+        <label class="col-sm-3 col-form-label is-required">discord</label>
+        <input type="text" name="discord"  id=""  class="form-control" placeholder=""
+          aria-describedby="helpId" formControlName="discord" value="">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" 
+      (click)="d('Cross click')"> Cancelar 
+      </button>
+      <button class="btn btn-danger"  
+      (click)="actualizar()"> Actualizar 
+      </button>
+    </div>
+  </ng-template>
 
-<ng-template #agregarContacto let-c="close" let-d="dismiss">
-
-  <div class="card">
-      <div class="card-header">
-        <h3>Agregar Datos Contacto</h3>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="cont" >
+  <!-- MODAL AGREGAR CONTACTO -->
+<ng-template #agregarContacto let-modal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Agregar Educacion</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="cont" >
         
-          <label class="col-sm-3 col-form-label is-required">correo </label>
-          <input type="email" name="correo" id=""  class="form-control" placeholder=""
-            aria-describedby="helpId" formControlName="correo" value="">
-  
-          <label class="col-sm-3 col-form-label is-required">telefono</label>
-          <input type="number" name="telefono" id=""  class="form-control" placeholder=""
-            aria-describedby="helpId" formControlName="telefono" value="">
-  
-          <label class="col-sm-3 col-form-label is-required">linkedin</label>
-          <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
-            aria-describedby="helpId" formControlName="linkedin" value="">
-  
-          <label class="col-sm-3 col-form-label is-required">discord</label>
-          <input type="text" name="discord" id=""  class="form-control" placeholder=""
-            aria-describedby="helpId" formControlName="discord" value="">
-            
-            <div class="botones" style="position: relative; margin-top: 20px;margin-bottom: 5px;">
-              <button class="btn btn-primary" (click)="guardar()"> Guardar </button>
-              <button type="button" class="btn btn-danger" (click)="d('Cross click')"> Cerrar </button>
-            </div>
-        </form> 
-      </div>
-    </div> 
+      <label class="col-sm-3 col-form-label is-required">correo </label>
+      <input type="email" name="correo" id=""  class="form-control" placeholder=""
+        aria-describedby="helpId" formControlName="correo" value="">
+
+      <label class="col-sm-3 col-form-label is-required">telefono</label>
+      <input type="number" name="telefono" id=""  class="form-control" placeholder=""
+        aria-describedby="helpId" formControlName="telefono" value="">
+
+      <label class="col-sm-3 col-form-label is-required">linkedin</label>
+      <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
+        aria-describedby="helpId" formControlName="linkedin" value="">
+
+      <label class="col-sm-3 col-form-label is-required">discord</label>
+      <input type="text" name="discord" id=""  class="form-control" placeholder=""
+        aria-describedby="helpId" formControlName="discord" value="">
+    </form> 
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" 
+    (click)="d('Cross click')"> Cancelar 
+    </button>
+    <button class="btn btn-danger"  
+    (click)="guardar()"> Actualizar 
+    </button>
+  </div>
 </ng-template>

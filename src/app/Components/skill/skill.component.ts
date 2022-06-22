@@ -34,6 +34,24 @@ export class SkillComponent implements OnInit {
   
     });
   }
+
+  openSkil(targetModal: any, ski: Skill) {
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+      size: 'lg'
+  
+    });
+    this.skills.patchValue({
+      id:ski.id,
+      nombre:ski.nombre,
+      nivel:ski.nivel,
+      img:ski.img,
+
+    });
+    // console.log(this.cont.value.id)
+  }
+
   obtener(e:any){  
     this.a=e[0].base64;
     }
@@ -49,5 +67,17 @@ export class SkillComponent implements OnInit {
     let id= localStorage.setItem("id",ski.id!.toString());
     console.log(id);
    }
+
+
+   actualizar(){
+this.skills.value.img=this.a;
+  this.skillS.actualizar(this.skills.value).subscribe(data=>{this.s=data,
+  this.ngOnInit()});
+  this.modalService.dismissAll();
+  console.log(this.skills.value)
+
+   }
+
+
 
 }
