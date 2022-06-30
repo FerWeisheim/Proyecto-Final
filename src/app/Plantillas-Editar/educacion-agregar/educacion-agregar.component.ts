@@ -9,9 +9,9 @@ import { EducacionService } from 'src/app/Service/educacion.service';
   styleUrls: ['./educacion-agregar.component.css']
 })
 export class EducacionAgregarComponent implements OnInit {
-  fechaIni = new Date();
-  fechaFin = new Date();
-  educa:Educacion = new Educacion(0,"","","",this.fechaIni,this.fechaFin );
+  // fechaIni = new Date();
+  // fechaFin = new Date();
+  educa:Educacion = new Educacion(0,"","","","","" );
   constructor(private form:FormBuilder,private educacionS:EducacionService) { }
   educacion:FormGroup=this.form.group({
     nombre:['',Validators.required],

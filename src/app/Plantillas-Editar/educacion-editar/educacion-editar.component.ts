@@ -14,10 +14,10 @@ import { EducacionService } from 'src/app/Service/educacion.service';
 })
 
 export class EducacionEditarComponent implements OnInit {
-  fechaIni = new Date();
-  fechaFin = new Date();
+  // fechaIni = new Date();
+  // fechaFin = new Date();
 
-  educa:Educacion = new Educacion(0,"","","",this.fechaIni,this.fechaFin );
+  educa:Educacion = new Educacion(0,"","","","","" );
   
   constructor(private form:FormBuilder,private eduser:EducacionService,private route:Router,
               config: NgbModalConfig,private modalService: NgbModal) {

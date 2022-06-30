@@ -1,19 +1,19 @@
-h2{
+/* h2{
     text-decoration:underline rgb(195, 147, 242);
-}
+} */
 .card{
      width: 100%;
      margin-bottom: 15px;
      border-radius: 4px;
      border-color: transparent;
-     background-color: #FCF6E2;
-     color: black;
+     background-color: #000000;
+     color: rgb(255, 255, 255);
 
  }
 .circulo{
     display: flex;
     margin-bottom: 2%;
-    border: 2px black solid; 
+    border: 2px rgb(255, 7, 7) solid; 
     width: 100px;
     height: 100px; 
     border-radius: 100px;
@@ -28,19 +28,26 @@ h2{
 }
  
 body{
-    background-color: #FCF6E2;
+    background-color: #000000;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body { margin: 0; font-family: cursive; }
 
 .modal-header{
-    background-color: rgb(186, 251, 228);
+    margin-top: -1px;
+    background-color: rgb(123, 135, 113);
+    color: white;
 }
 .modal-body{
-    background-color: rgb(186, 251, 228);
+    color: white;
+    margin-top: -1px;
+    background-color: rgb(123, 135, 113);
 }
 .modal-footer{
-    background-color: rgb(186, 251, 228);
+    margin-top: -1px;
+    background-color: rgb(123, 135, 113);
+   color: white;
 }
 
 .boton{

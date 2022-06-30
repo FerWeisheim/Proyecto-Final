@@ -22,5 +22,12 @@ agregar(skill:Skill){
     return this.http.get<Skill>(`http://localhost:8080/tecnologia/traer/${id}`);
    }
    
-  
+   agregarBack(skill:Skill){
+    return this.http.post<Skill>("http://localhost:8080/tecnologia/back/crear",skill);
+   }
+   public getSkillBack():Observable<Skill[]>{
+    return this.http.get<Skill[]>( "http://localhost:8080/tecnologia/back/crear");
+  }
+
+
 }

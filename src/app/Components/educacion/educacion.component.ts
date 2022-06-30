@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
-  fechaIni = new Date();
-  fechaFin = new Date();
+  // fechaIni = new Date();
+  // fechaFin = new Date();
   educacio!:FormGroup;
 
   
@@ -22,7 +22,7 @@ export class EducacionComponent implements OnInit {
     config.keyboard = false;
   }
   educacion: Educacion[] = [];
-  educa: Educacion = new Educacion(0, "", "", "", this.fechaIni, this.fechaFin);
+  educa: Educacion = new Educacion(0, "", "", "", "","");
   ngOnInit(): void {
     this.educacionS.getEducacion().subscribe(data => this.educacion = data);
   this.educacio = this.form.group({
@@ -33,8 +33,17 @@ export class EducacionComponent implements OnInit {
     descripcion: ['', Validators.required],
     titulo: ['', Validators.required],
   })
-  
   }
+
+  openEducacion(targetModal: any) {
+    this.modalService.open(targetModal, {
+      centered: true,
+      backdrop: 'static',
+      size: 'lg'
+  
+    });
+  }
+
   openEdit(targetModal: any, educa: Educacion) {
     this.modalService.open(targetModal, {
       centered: true,
@@ -49,18 +58,24 @@ export class EducacionComponent implements OnInit {
       titulo: educa.titulo,
       fechaIni: educa.fechaIni,
       fechaFin: educa.fechaFin
+      
 
     });
-    console.log(this.educacio.value.id)
+    // console.log(this.educacio.value)
   }
 enviar(){
- 
-  // console.log(this.educacio.id.value)
-  this.educacionS.actualizar(this.educacio.value).subscribe(res=>{this.educa=res,
-    this.ngOnInit()
-   } );
-  this.modalService.dismissAll();
+   console.log(this.educacio.value)
+  // this.educacionS.actualizar(this.educacio.value).subscribe(res=>{this.educa=res,
+  //   this.ngOnInit();});
+  // this.modalService.dismissAll();
 }
 
+
+guardar(){
+ console.log(this.educacio.value)
+// this.educacionS.agregar(this.educacio.value).subscribe(data=>{this.educa=data,
+// this.ngOnInit()});
+// this.modalService.dismissAll();
+}
 
 }

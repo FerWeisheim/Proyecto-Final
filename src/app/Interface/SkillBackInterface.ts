@@ -1,4 +1,4 @@
-export class Skill {
+export class skillBack {
     id: number;
     nombre:string;
     nivel:number;
@@ -10,5 +10,6 @@ constructor(id:number,nombre:string,nivel:number,img:string)
         this.nombre=nombre;
         this.nivel=nivel;
         this.img=img;
+    
     }
     }

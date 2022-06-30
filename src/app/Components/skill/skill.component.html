@@ -30,7 +30,7 @@
                                         </div>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success progress-bar-striped" role="progressbar"
+                                        <div class="progress-bar bg-info" role="progressbar"
                                             attr.style="width:{{ski.nivel}}%" aria-valuenow="25" aria-valuemin=""
                                             aria-valuemax="100">
                                         </div>
@@ -51,100 +51,69 @@
                                 </div> -->
                             </div>
                         </div>
-                        <!-- otra columna -->
+                        <!--  columna back-->
                         <div class="col-sm-4">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <h3>Back-end</h3>
+                                    <h3>Back-End</h3>
                                     <div class="botones">
-                                        <i class="fas fa-plus-circle" (click)="openEdit(agregarBack)"></i>
+                                        <i class="fas fa-plus-circle" (click)="openBack(agregarBack)"></i>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <p></p>
-                                    <div class=" botones">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-alt"></i>
+                                <div *ngFor="let skiback of skillBack">
+                                    <p>{{skiback.nombre}}</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p><img src="{{skiback.img}}" class="circulo"></p>
+                                        <div class=" botones">
+                                            <i class="fas fa-edit" (click)="openSkil(editarBack,skiback)"></i>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                                        role="progressbar" style="" aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info " role="progressbar"
+                                            attr.style="width:{{skiback.nivel}}%" aria-valuenow="25" aria-valuemin=""
+                                            aria-valuemax="100">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-sm-4">
+                        </div>
+                        <!-- columna de softskill -->
+                        <div class="col-sm-4">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <h3>Soft-Skills</h3>
+                                    <h3>Soft</h3>
                                     <div class="botones">
-                                        <i class="fas fa-plus-circle"></i>
+                                        <i class="fas fa-plus-circle" (click)="openBack(agregarSoft)"></i>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <p>Trabajo en equipo</p>
-                                    <div class=" botones">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-alt"></i>
+                                <div *ngFor="let soft of skillSoft">
+                                    <p>{{soft.nombre}}</p>
+                                    <div class="d-flex justify-content-between">
+                                         <p><img src="{{soft.img}}" class="circulo"></p> 
+                                        <div class=" botones">
+                                            <i class="fas fa-edit" (click)="openSkil(editarSoft,soft)"></i>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
-                                        role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100">
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <p>Adaptabilidad</p>
-                                    <div class="botones">
-                                        <i class="fas fa-edit"></i>
-                                        <i class="fas fa-trash-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
-                                        role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100">
+                                    <div class="progress">
+                                         <div class="progress-bar bg-info " role="progressbar"
+                                            attr.style="width:{{soft.nivel}}%" aria-valuenow="25" aria-valuemin=""
+                                            aria-valuemax="100">
+                                        </div> 
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 </div>
-<ng-template #agregarSkill let-c="close" let-d="dismiss">
-    <div class="card">
-        <div class="card-header">
-            <h3>Agregar skill</h3>
-        </div>
-        <div class="card-body">
-            <form [formGroup]="skills">
-                <label class="col-sm-3 col-form-label is-required"> nombre </label>
-                <input type="email" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
-                    formControlName="nombre" value="">
-                <label class="col-sm-3 col-form-label is-required"> imagen </label>
-                <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
-                    (onFileChanged)="obtener($event)" class="form-control" placeholder="">
-                <label for="customRange1" class="form-label">nivel</label>
-                <input type="range" class="form-range" formControlName="nivel" id="customRange1">
-                <button class="btn btn-danger" [routerLink]="['home']" (click)="guardar()">Agregar</button>
-                <button class="btn btn-secondary" (click)="d('Cross click')">CANCELAR
-                </button>
-            </form>
-        </div>
-    </div>
-
-
-</ng-template>
-
-<ng-template #editarSkill let-modal let-c="close" let-d="dismiss">
+<ng-template #agregarSkill let-modal let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title">Editar Skill</h4>
+        <h4 class="modal-title">Agregar Skill Front</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -167,15 +136,16 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
         </button>
-        <button class="btn btn-danger" (click)="actualizar()"> Actualizar
+        <button class="btn btn-danger" (click)="guardar()"> Guardar
         </button>
     </div>
 
+
 </ng-template>
 
-<ng-template #agregarBack let-modal let-c="close" let-d="dismiss">
+<ng-template #editarSkill let-modal let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title">Agregar Back</h4>
+        <h4 class="modal-title">Editar Skill Front-End</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -185,10 +155,14 @@
             <label class="col-sm-3 col-form-label is-required">nombre </label>
             <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
                 formControlName="nombre" value="">
+
             <label class="col-sm-3 col-form-label is-required">nivel</label>
             <input type="range" class="form-range" formControlName="nivel" id="customRange1">
+
             <label class="col-sm-3 col-form-label is-required">img</label>
-            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file">
+            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+            (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+
         </form>
     </div>
     <div class="modal-footer">
@@ -197,4 +171,122 @@
         <button class="btn btn-danger" (click)="actualizar()"> Actualizar
         </button>
     </div>
+
+</ng-template>
+
+<ng-template #agregarBack let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Agregar Skill Back-End</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="skills">
+            <label class="col-sm-3 col-form-label is-required">nombre</label>
+            <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="nombre" value="">
+            <label class="col-sm-3 col-form-label is-required">nivel</label>
+            <input type="range" class="form-range" formControlName="nivel" id="customRange1">
+            <label class="col-sm-3 col-form-label is-required">img</label>
+            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="guardarback()"> guardar
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #editarBack let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Editar Skill Back-End</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="skills">
+            <label class="col-sm-3 col-form-label is-required">nombre </label>
+            <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="nombre" value="">
+
+            <label class="col-sm-3 col-form-label is-required">nivel</label>
+            <input type="range" class="form-range" formControlName="nivel" id="customRange1">
+
+            <label class="col-sm-3 col-form-label is-required">img</label>
+            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="actualizarback()"> Actualizar
+        </button>
+    </div>
+
+</ng-template>
+
+
+<ng-template #agregarSoft let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Agregar Skill Soft</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="skills">
+            <label class="col-sm-3 col-form-label is-required">nombre</label>
+            <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="nombre" value="">
+            <label class="col-sm-3 col-form-label is-required">nivel</label>
+            <input type="range" class="form-range" formControlName="nivel" id="customRange1">
+            <label class="col-sm-3 col-form-label is-required">img</label>
+            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="guardarsoft()"> guardar
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #editarSoft let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Editar Skill Soft</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="skills">
+            <label class="col-sm-3 col-form-label is-required">nombre </label>
+            <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="nombre" value="">
+
+            <label class="col-sm-3 col-form-label is-required">nivel</label>
+            <input type="range" class="form-range" formControlName="nivel" id="customRange1">
+
+            <label class="col-sm-3 col-form-label is-required">img</label>
+            <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="actualizarsoft()"> Actualizar
+        </button>
+    </div>
+
 </ng-template>
