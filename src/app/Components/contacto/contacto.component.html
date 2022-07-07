@@ -8,7 +8,7 @@
                   <div class="col-sm-12"  *ngFor="let c of contactos">
                       <div class="d-flex justify-content-between">
                           <h6>Contacto</h6>
-                          <div class=" botones">
+                          <div class=" botones" *ngIf="isAdmin">
                               <i class="fas fa-edit"  (click)="openEdit(editarContacto,c)"></i>
                               <!-- [routerLink]="['/editar/contacto']" (click)="editar(c)" va arriba -->
                               <i class="fas fa-trash-alt"  (click)="borrar(c)"></i>

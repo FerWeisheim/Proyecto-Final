@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
     let id= localStorage.setItem("id",per.id!.toString());
   }
   obtener(e:any){
-     this.base=e[0].base64;
-    // this.persona.img=e[0].base64;
+   this.base=e[0].base64;
+   this.perso.value.img=this.base;
   }
 
   openEdit(targetModal: any, pers:Persona) {
@@ -51,12 +51,12 @@ export class HomeComponent implements OnInit {
       nombre: pers.nombre,
       apellido: pers.apellido,
       titulo: pers.titulo,
-      // img:pers.img
+      img:pers.img
     });
-    console.log(this.perso.value.id)
+    // console.log(this.perso.value.id)
   }
 actualizar(){
-  this.perso.value.img=this.base;
+  // this.perso.value.img=this.base;
   this.personaService.actualizar(this.perso.value).subscribe(res=>{this.persona=res,
   this.ngOnInit()});
   this.modalService.dismissAll();

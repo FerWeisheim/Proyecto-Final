@@ -5,6 +5,7 @@ import { Contacto } from 'src/app/Interface/ContactoInterface';
 import { ContactoServiceService } from 'src/app/Service/contacto-service.service'
 import { NgbModalConfig, NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng-bootstrap';
 import { Educacion } from 'src/app/Interface/EducacionInterface';
+import { TokenService } from 'src/app/Service/token.service';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
@@ -17,15 +18,15 @@ export class ContactoComponent implements OnInit {
   // trackByIdentity = (index: number, item: any) => item;
   constructor(private contactoS:ContactoServiceService,
               private form:FormBuilder,private router:Router,config: NgbModalConfig,
-              private modalService: NgbModal) { 
+              private modalService: NgbModal,private tokenService:TokenService) { 
                 config.backdrop = 'static';
                 config.keyboard = false;
               }
 
-cont!:FormGroup;
+  cont!:FormGroup;
 
-
-
+  isAdmin=false;
+  roles:string[];
   ngOnInit(): void {  
     this.contactoS.getContacto().subscribe(data=> { this.contactos=data});
     this.cont=this.form.group({
@@ -35,6 +36,7 @@ cont!:FormGroup;
       linkedin:['', Validators.required],
       discord:['', Validators.required]
       })
+      this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
     }
   
 

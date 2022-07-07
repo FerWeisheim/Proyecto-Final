@@ -41,37 +41,27 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="perso">
-            
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <div class="input-group">
-                  <input formControlName="nombre" class="form-control">
-                </div>
-              </div>
-            
-              <div class="form-group">
-                <label for="nombre">Apellido</label>
-                <div class="input-group">
-                  <input formControlName="apellido" class="form-control">
-                </div>
-              </div>
-             
-              <div class="form-group">
-                <label for="nombre">Titulo</label>
-                <div class="input-group">
-                  <input formControlName="titulo" class="form-control">
-                </div>
-              </div>
+          <label class="col-sm-3 col-form-label is-required">nombre </label>
+          <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+              formControlName="nombre" value="">
+              <label class="col-sm-3 col-form-label is-required">apellido </label>
+              <input type="text" name="apellido" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                  formControlName="apellido" value="">
+                  <label class="col-sm-3 col-form-label is-required">titulo </label>
+                  <input type="text" name="titulo" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                      formControlName="titulo" value="">
+          
+          <label class="col-sm-3 col-form-label is-required">img</label>
+          <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+          (onFileChanged)="obtener($event)" class="form-control" placeholder="">
 
-              <div class="form-group">
-                <label for="nombre">img</label>
-                <div class="input-group">
-                    <input type="file" accept=".png , .jpg" alife-file-to-base64 (onFileChanged)="obtener($event)" name="img"  class="form-control" formControlName="img">  
-                </div>
-              </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+      </button>
+      <button class="btn btn-danger" (click)="actualizar()"> Actualizar
+      </button>
+  </div>
 
-            <button class="btn btn-danger" (click)="actualizar()"> actualizar </button>
-            <button type="button" class="btn btn-danger">Cerrar</button>
-          </form>
-      </div>
 </ng-template>

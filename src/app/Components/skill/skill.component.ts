@@ -7,6 +7,7 @@ import { NgbModalConfig, NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng
 import { skillBack } from 'src/app/Interface/SkillBackInterface';
 import { SkillBackService } from 'src/app/Service/skill-back-.service';
 import { SkillSoftService } from 'src/app/Service/skill-soft.service';
+import { TokenService } from 'src/app/Service/token.service';
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
@@ -20,11 +21,13 @@ export class SkillComponent implements OnInit {
   b:skillBack = new skillBack(0,"",0,"");
 
   constructor(private skillS:SkillServiceService,private form:FormBuilder,config: NgbModalConfig,
-  private modalService: NgbModal,private skillback: SkillBackService,private skillSo:SkillSoftService) { }
+  private modalService: NgbModal,private skillback: SkillBackService,private skillSo:SkillSoftService,private tokenService:TokenService) { }
   skill:Skill[]=[];
   skillBack:Skill[]=[];
   skillSoft:Skill[]=[];
   a:string="";
+  isAdmin=false;
+  roles:string[];
   ngOnInit(): void {
       this.skillS.getSkill().subscribe(data=>this.skill=data);
       this.skillback.getSkill().subscribe(data=>this.skillBack=data);
@@ -36,7 +39,8 @@ export class SkillComponent implements OnInit {
         nombre:['',Validators.required],
         nivel:['', Validators.required],
         img: ['']
-       })
+       }),
+       this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
     }
     
   openEdit(targetModal: any) {

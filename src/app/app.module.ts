@@ -29,6 +29,13 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { PersonaEditarComponent } from './Plantillas-Editar/persona-editar/persona-editar.component';
 import { EducacionEditarComponent } from './Plantillas-Editar/educacion-editar/educacion-editar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './Auth/login/login.component';
+import { RegistroComponent } from './Auth/registro/registro.component';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule}from '@angular/platform-browser/animations'
+import { interceptorProvider } from './interceptors/prod-interceptors.service';
+
+
 
 
 
@@ -51,21 +58,29 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EducacionAgregarComponent,
     PersonaEditarComponent,
     EducacionEditarComponent,
+    LoginComponent,
+    RegistroComponent,
+    
+
+
+   
   
 
   ],
   imports: [
-    BrowserModule,
-    routing,
-    HttpClientModule,
-    ReactiveFormsModule,
+   BrowserModule,
+   routing,
+   HttpClientModule,
+   ReactiveFormsModule,
    AlifeFileToBase64Module,
    FormsModule,
    NgbModule,
+   BrowserAnimationsModule,
+   ToastrModule.forRoot()
 
 
   ],
-  providers: [ContactoServiceService,PersonaServiceService],
+  providers: [ContactoServiceService,PersonaServiceService,interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

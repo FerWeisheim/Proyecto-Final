@@ -16,7 +16,7 @@
                                 <div class="d-flex justify-content-between">
                                     <h3>Front-End</h3>
                                     <p></p>
-                                    <div class="botones">
+                                    <div class="botones" *ngIf="isAdmin">
                                         <i class="fas fa-plus-circle" (click)="openEdit(agregarSkill)"></i>
                                     </div>
                                 </div>
@@ -24,7 +24,7 @@
                                     <p>{{ski.nombre}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p><img src="{{ski.img}}" class="circulo"></p>
-                                        <div class=" botones">
+                                        <div class=" botones" *ngIf="isAdmin">
                                             <i class="fas fa-edit" (click)="openSkil(editarSkill,ski)"></i>
                                             <i class="fas fa-trash-alt"></i>
                                         </div>
@@ -56,7 +56,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h3>Back-End</h3>
-                                    <div class="botones">
+                                    <div class="botones" *ngIf="isAdmin">
                                         <i class="fas fa-plus-circle" (click)="openBack(agregarBack)"></i>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                     <p>{{skiback.nombre}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p><img src="{{skiback.img}}" class="circulo"></p>
-                                        <div class=" botones">
+                                        <div class=" botones" *ngIf="isAdmin">
                                             <i class="fas fa-edit" (click)="openSkil(editarBack,skiback)"></i>
                                             <i class="fas fa-trash-alt"></i>
                                         </div>
@@ -83,7 +83,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
                                     <h3>Soft</h3>
-                                    <div class="botones">
+                                    <div class="botones" *ngIf="isAdmin">
                                         <i class="fas fa-plus-circle" (click)="openBack(agregarSoft)"></i>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                     <p>{{soft.nombre}}</p>
                                     <div class="d-flex justify-content-between">
                                          <p><img src="{{soft.img}}" class="circulo"></p> 
-                                        <div class=" botones">
+                                        <div class=" botones" *ngIf="isAdmin">
                                             <i class="fas fa-edit" (click)="openSkil(editarSoft,soft)"></i>
                                             <i class="fas fa-trash-alt"></i>
                                         </div>
