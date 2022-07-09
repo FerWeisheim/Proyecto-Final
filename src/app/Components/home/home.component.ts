@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Persona } from 'src/app/Interface/PersonaInterface';
 import { PersonaServiceService } from 'src/app/Service/persona-service.service';
 import { NgbModalConfig, NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng-bootstrap';
+import { TokenService } from 'src/app/Service/token.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,8 +15,10 @@ export class HomeComponent implements OnInit {
   persona: Persona = new Persona (0,"","","",""); 
   per:Persona[]=[];
   base: string="";
+  isAdmin:boolean=false;
+  roles:string[];
   constructor(private personaService:PersonaServiceService,private form:FormBuilder,config: NgbModalConfig,
-    private modalService: NgbModal,) { 
+    private modalService: NgbModal,private tokenService:TokenService,private route: Router) { 
     config.backdrop = 'static';
     config.keyboard = false;}
 // persona:Persona[]=[];
@@ -27,7 +31,8 @@ export class HomeComponent implements OnInit {
       titulo: ['', Validators.required],
       img: ['', Validators.required],
       
-    })
+    }),
+    this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
   }
 
   editar(per:Persona){
@@ -60,5 +65,11 @@ actualizar(){
   this.personaService.actualizar(this.perso.value).subscribe(res=>{this.persona=res,
   this.ngOnInit()});
   this.modalService.dismissAll();
+}
+salir(){
+  this.tokenService.logOut();
+  window.location.reload;
+  this.route.navigate(['/home']);
+  
 }
 }

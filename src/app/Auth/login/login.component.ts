@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/Service/token.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  isLogged=false;
+    isLogged=false;
     isLoginFail=false;
     roles:String[]=[];
     loginUsuario:LoginUsuario;
@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
+    }
+    else{
+      this.isLogged=false;
     }
   }
 
@@ -62,6 +65,17 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+      
+// logOut(){
+//   this.isLogged=true;
+     
+//   window.sessionStorage.clear();
+//   window.location.reload();
+//   this.route.navigate(['/home']);
+ 
+//   }
+
+
   
 
 }

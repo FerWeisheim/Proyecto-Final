@@ -5,6 +5,7 @@ import { EducacionService } from 'src/app/Service/educacion.service';
 import { NgbModalConfig, NgbModal, ModalDismissReasons, } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/Service/token.service';
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
@@ -15,9 +16,10 @@ export class EducacionComponent implements OnInit {
   // fechaFin = new Date();
   educacio!:FormGroup;
 
-  
+  isAdmin=false;
+  roles:string[];
   constructor(private educacionS: EducacionService, config: NgbModalConfig,
-    private modalService: NgbModal, private form: FormBuilder,private route:Router) {
+    private modalService: NgbModal, private form: FormBuilder,private route:Router,private tokenService:TokenService) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -32,7 +34,8 @@ export class EducacionComponent implements OnInit {
     fechaFin: ['', Validators.required],
     descripcion: ['', Validators.required],
     titulo: ['', Validators.required],
-  })
+  }),
+  this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
   }
 
   openEducacion(targetModal: any) {
