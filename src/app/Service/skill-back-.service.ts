@@ -14,16 +14,16 @@ export class SkillBackService {
 
   public getSkill():Observable<skillBack[]>{
 
-  return this.http.get<skillBack[]>( "http://localhost:8080/tecnologia/back/traer");
+  return this.http.get<skillBack[]>( "https://porfoliobeto.herokuapp.com/tecnologia/back/traer");
 }
 agregar(skill:skillBack){
-  return this.http.post<skillBack>("http://localhost:8080/tecnologia/back/crear",skill);
+  return this.http.post<skillBack>("https://porfoliobeto.herokuapp.com/tecnologia/back/crear",skill);
  }
  actualizar(skill:skillBack){
-  return this.http.put<skillBack>(`http://localhost:8080/tecnologia/back/editar/${skill.id}`,skill);
+  return this.http.put<skillBack>(`https://porfoliobeto.herokuapp.com/tecnologia/back/editar/${skill.id}`,skill);
   }
   getPorId(id:number){
-    return this.http.get<skillBack>(`http://localhost:8080/tecnologia/back/traer/${id}`);
+    return this.http.get<skillBack>(`https://porfoliobeto.herokuapp.com/tecnologia/back/traer/${id}`);
    }
    
   
