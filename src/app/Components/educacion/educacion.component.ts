@@ -22,11 +22,11 @@ export class EducacionComponent implements OnInit {
     private modalService: NgbModal, private form: FormBuilder,private route:Router,private tokenService:TokenService) {
     config.backdrop = 'static';
     config.keyboard = false;
+    this.educacionS.getEducacion().subscribe(data => this.educacion = data);
   }
   educacion: Educacion[] = [];
   educa: Educacion = new Educacion(0, "", "", "", "","");
   ngOnInit(): void {
-    this.educacionS.getEducacion().subscribe(data => this.educacion = data);
   this.educacio = this.form.group({
     id:[],
     nombre: ['', Validators.required],
@@ -39,6 +39,8 @@ export class EducacionComponent implements OnInit {
   }
 
   openEducacion(targetModal: any) {
+    this.educacio.reset();
+    this.modalService.dismissAll();
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
@@ -51,8 +53,7 @@ export class EducacionComponent implements OnInit {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
-      size: 'lg'
-  
+      size: 'lg',
     });
     this.educacio.patchValue({
       id:educa.id,
@@ -61,24 +62,23 @@ export class EducacionComponent implements OnInit {
       titulo: educa.titulo,
       fechaIni: educa.fechaIni,
       fechaFin: educa.fechaFin
-      
-
     });
     // console.log(this.educacio.value)
   }
+
 enviar(){
    console.log(this.educacio.value)
-  // this.educacionS.actualizar(this.educacio.value).subscribe(res=>{this.educa=res,
-  //   this.ngOnInit();});
-  // this.modalService.dismissAll();
+   this.educacionS.actualizar(this.educacio.value).subscribe(res=>{this.educa=res,
+    this.ngOnInit();});
+   this.modalService.dismissAll();
 }
 
 
 guardar(){
  console.log(this.educacio.value)
-// this.educacionS.agregar(this.educacio.value).subscribe(data=>{this.educa=data,
-// this.ngOnInit()});
-// this.modalService.dismissAll();
+ this.educacionS.agregar(this.educacio.value).subscribe(data=>{this.educa=data,
+ this.ngOnInit()});
+ this.modalService.dismissAll();
 }
 
 }

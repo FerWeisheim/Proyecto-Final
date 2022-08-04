@@ -11,22 +11,22 @@ export class SobremiService {
   constructor(private http:HttpClient) { }
 
   public getSobreMi():Observable<SobreMi[]>{
-  return this.http.get<SobreMi[]>("https://porfoliobeto.herokuapp.com/sobremi/traer")
+  return this.http.get<SobreMi[]>("http://localhost:8080/sobremi/traer")
   }
 
   agregar(sobremi:SobreMi){
-    return this.http.post<SobreMi>("https://porfoliobeto.herokuapp.com/sobremi/crear",sobremi);
+    return this.http.post<SobreMi>("http://localhost:8080/sobremi/crear",sobremi);
   }
   actualizar(sobremi:SobreMi){
-    return this.http.put<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/editar/${sobremi.id}`,sobremi);
+    return this.http.put<SobreMi>(`http://localhost:8080/sobremi/editar/${sobremi.id}`,sobremi);
   }
   
   getPorId(id:number){
-    return this.http.get<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/traer/${id}`);
+    return this.http.get<SobreMi>(`http://localhost:8080/sobremi/traer/${id}`);
    }
 
   deletePorId(id:number){
-    return this.http.delete<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/borrar/${id}`);
+    return this.http.delete<SobreMi>(`http://localhost:8080/sobremi/borrar/${id}`);
    }
 
 

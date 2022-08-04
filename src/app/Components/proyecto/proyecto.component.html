@@ -1,0 +1,96 @@
+<section id="educacion">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h2>Proyectos</h2>
+            <div class="botones">
+              <i class="fas fa-plus-circle" ></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="educacion">
+            <div class="row">
+              <div class="col-sm-3" >
+                <div class="d-flex justify-content-between">
+                  <span></span>
+                  <div class=" botones">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
+                  </div>
+                </div>
+                <div class="card" style="width: 18rem; background-color: rgb(240, 192, 16);">
+                  <!-- <img src="..." class="card-img-top" alt="..."> -->
+                  <div class="card-body">
+                    <p class="card-text">
+                     asda:dasdsa
+                     asda:dasdsa
+                     asda:dasdsa
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<ng-template #agregarProyecto let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Agregar Proyecto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="proyecto">
+            <label class="col-sm-3 col-form-label is-required">Proyecto</label>
+            <input type="text" name="proyecto" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="proyecto" value="">
+            <label class="col-sm-3 col-form-label is-required">Descripcion</label>
+            <input type="text" name="descripcion" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="descripcion" value="">
+            <label class="col-sm-3 col-form-label is-required">Url</label>
+            <input type="text" name="url" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="url" value="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="guardar()"> Guardar
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #editarProyecto let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Editar Proyecto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="proyecto">
+            <label class="col-sm-3 col-form-label is-required">Proyecto</label>
+            <input type="text" name="proyecto" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="proyecto" value="">
+            <label class="col-sm-3 col-form-label is-required">Descripcion</label>
+            <input type="text" name="descripcion" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="descripcion" value="">
+            <label class="col-sm-3 col-form-label is-required">Url</label>
+            <input type="text" name="url" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="url" value="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="guardar()"> Guardar
+        </button>
+    </div>
+</ng-template>

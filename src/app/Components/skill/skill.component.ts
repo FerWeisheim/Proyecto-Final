@@ -8,6 +8,7 @@ import { skillBack } from 'src/app/Interface/SkillBackInterface';
 import { SkillBackService } from 'src/app/Service/skill-back-.service';
 import { SkillSoftService } from 'src/app/Service/skill-soft.service';
 import { TokenService } from 'src/app/Service/token.service';
+import { skillSoft } from 'src/app/Interface/SkillSoftInterface';
 @Component({
   selector: 'app-skill',
   templateUrl: './skill.component.html',
@@ -19,18 +20,20 @@ export class SkillComponent implements OnInit {
 
   s:Skill=new Skill(0,"",0,"");
   b:skillBack = new skillBack(0,"",0,"");
-
+  soft:skillSoft = new skillSoft(0,"",0,"");
   constructor(private skillS:SkillServiceService,private form:FormBuilder,config: NgbModalConfig,
-  private modalService: NgbModal,private skillback: SkillBackService,private skillSo:SkillSoftService,private tokenService:TokenService) { }
+  private modalService: NgbModal,private skillbackS: SkillBackService,private skillSo:SkillSoftService,private tokenService:TokenService) { }
   skill:Skill[]=[];
   skillBack:Skill[]=[];
   skillSoft:Skill[]=[];
   a:string="";
   isAdmin=false;
   roles:string[];
+  private deleteId:number;
+  private deleteIdBack:number;
   ngOnInit(): void {
       this.skillS.getSkill().subscribe(data=>this.skill=data);
-      this.skillback.getSkill().subscribe(data=>this.skillBack=data);
+      this.skillbackS.getSkill().subscribe(data=>this.skillBack=data);
       this.skillSo.getSkill().subscribe(data=>this.skillSoft=data);
 
       // formulario front
@@ -44,6 +47,8 @@ export class SkillComponent implements OnInit {
     }
     
   openEdit(targetModal: any) {
+    
+    this.skills.reset();
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
@@ -73,6 +78,7 @@ export class SkillComponent implements OnInit {
 
   // formulario para el back
   openBack(targetModal: any) {
+    this.skills.reset();
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
@@ -127,7 +133,7 @@ export class SkillComponent implements OnInit {
 
 guardarback(){
 
-  this.skillback.agregar(this.skills.value).subscribe(data=>{this.b=data,
+  this.skillbackS.agregar(this.skills.value).subscribe(data=>{this.b=data,
   this.ngOnInit()});
   this.modalService.dismissAll();
 
@@ -135,7 +141,7 @@ guardarback(){
 
 actualizarback(){
 
-  this.skillback.actualizar(this.skills.value).subscribe(data=>{this.s=data,
+  this.skillbackS.actualizar(this.skills.value).subscribe(data=>{this.s=data,
   this.ngOnInit()});
   this.modalService.dismissAll();
   console.log(this.skills.value)
@@ -161,6 +167,59 @@ actualizarsoft(){
   console.log(this.skills.value)
 
    }
+  //  modal para borrar skill front
+   openDelete(targetModal, ski: Skill) {
+    this.deleteId = ski.id;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+    });
+  }
+  onDelete() {
+
+    this.skillS.deletePorId(this.deleteId)
+      .subscribe((resul) => {
+        this.s= resul
+        this.ngOnInit();
+        this.modalService.dismissAll();
+      });
+  };
+
+  // modal para borrar skill back
+  Deleteback(targetModal, skiback: skillBack) {
+    this.deleteId = skiback.id;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+    });
+  }
+  DeleteBack() {
+
+    this.skillbackS.deletePorId(this.deleteId)
+      .subscribe((resul) => {
+        this.b= resul
+        this.ngOnInit();
+        this.modalService.dismissAll();
+      });
+  };
+
+  // modal para borrar soft skill
+
+  Deletesoft(targetModal, skisof: skillSoft) {
+    this.deleteId = skisof.id;
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+    });
+  }
+  DeleteSoft() {
+
+    this.skillSo.DeletePorId(this.deleteId)
+      .subscribe((resul) => {
+        this.soft= resul
+        this.ngOnInit();
+        this.modalService.dismissAll();
+      });
+  };
+
+  
 
 
 

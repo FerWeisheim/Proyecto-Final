@@ -1,77 +1,80 @@
 <app-delete></app-delete>
 <div class="container-fluid">
   <section id="contacto" class="d-flex justify-content-end">
-      <div class="card">
-          <div class="row">
-            <h4>Contacto</h4>
-              <div *ngIf="contactos.length>0;else n">
-                  <div class="col-sm-12"  *ngFor="let c of contactos">
-                      <div class="d-flex justify-content-between">
-                          <h6>Contacto</h6>
-                          <div class=" botones" *ngIf="isAdmin">
-                              <i class="fas fa-edit"  (click)="openEdit(editarContacto,c)"></i>
-                              <!-- [routerLink]="['/editar/contacto']" (click)="editar(c)" va arriba -->
-                              <i class="fas fa-trash-alt"  (click)="borrar(c)"></i>
-                          </div>
-                      </div>
-                      <p>
-                          correo:{{c.correo}}
-                          telefono:{{c.telefono}}
-                          discord:{{c.discord}}
-                          linkedin:{{c.linkedin}}
-                      </p>
-                  </div>
+    <div class="card">
+      <div class="row">
+        <h4>Contacto</h4>
+        <div *ngIf="contactos.length>0;else n">
+          <div class="col-sm-12" *ngFor="let c of contactos">
+            <div class="d-flex justify-content-between">
+              <h6>Contacto</h6>
+              <div class=" botones" *ngIf="isAdmin">
+                <i class="fas fa-edit" (click)="openEdit(editarContacto,c)"></i>
+                <!-- [routerLink]="['/editar/contacto']" (click)="editar(c)" va arriba -->
+                <i class="fas fa-trash-alt" (click)="openDelete(contactoDelete,c)"></i>
               </div>
-          </div>
-      </div>
-      <ng-template #n>
-          <div class="container-fluid">
-            <div class="d-flex justify-content-end">
-           <button > <i class="fas fa-plus-circle" (click)="openAgregar(agregarContacto)"> </i></button>
-            
+            </div>
+            <p class="d-flex justify-content-center">
+              <!-- correo:{{c.correo}}
+              telefono:{{c.telefono}}
+              discord:{{c.discord}}
+              linkedin:{{c.linkedin}} -->
+              <i class="fab fa-github-square"></i>
+
+              <!-- <button class="fas fa-inbox btn-lg"></button> -->
+        
+            </p>
+
           </div>
         </div>
-      </ng-template>
-  </section>
-  </div>
-  <!-- modal editar contacto -->
-    <ng-template #editarContacto let-modal let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title">Editar Educacion</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      </div>
     </div>
-    <div class="modal-body">
-      <form [formGroup]="cont" >
-        <label class="col-sm-3 col-form-label is-required">correo </label>
-        <input type="email" name="correo" id=""  class="form-control" placeholder=""
-          aria-describedby="helpId" formControlName="correo" value="">
-  
-        <label class="col-sm-3 col-form-label is-required">telefono</label>
-        <input type="number" name="telefono" id=""  class="form-control" placeholder=""
-          aria-describedby="helpId" formControlName="telefono" value="">
-  
-        <label class="col-sm-3 col-form-label is-required">linkedin</label>
-        <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
-          aria-describedby="helpId" formControlName="linkedin" value="">
-  
-        <label class="col-sm-3 col-form-label is-required">discord</label>
-        <input type="text" name="discord"  id=""  class="form-control" placeholder=""
-          aria-describedby="helpId" formControlName="discord" value="">
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" 
-      (click)="d('Cross click')"> Cancelar 
-      </button>
-      <button class="btn btn-danger"  
-      (click)="actualizar()"> Actualizar 
-      </button>
-    </div>
-  </ng-template>
+    <ng-template #n>
+      <div class="container-fluid">
+        <div class="d-flex justify-content-end">
+          <i class="fas fa-plus-circle" (click)="openAgregar(agregarContacto)"> </i>
 
-  <!-- MODAL AGREGAR CONTACTO -->
+        </div>
+      </div>
+    </ng-template>
+  </section>
+</div>
+<!-- modal editar contacto -->
+<ng-template #editarContacto let-modal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Editar Educacion</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="cont">
+      <label class="col-sm-3 col-form-label is-required">correo </label>
+      <input type="email" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="correo" value="">
+
+      <label class="col-sm-3 col-form-label is-required">telefono</label>
+      <input type="number" name="telefono" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="telefono" value="">
+
+      <label class="col-sm-3 col-form-label is-required">linkedin</label>
+      <input type="text" name="linkedin" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="linkedin" value="">
+
+      <label class="col-sm-3 col-form-label is-required">discord</label>
+      <input type="text" name="discord" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="discord" value="">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+    </button>
+    <button class="btn btn-danger" (click)="actualizar()"> Actualizar
+    </button>
+  </div>
+</ng-template>
+
+<!-- MODAL AGREGAR CONTACTO -->
 <ng-template #agregarContacto let-modal let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title">Agregar Educacion</h4>
@@ -80,31 +83,49 @@
     </button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="cont" >
-        
+    <form [formGroup]="cont">
+
       <label class="col-sm-3 col-form-label is-required">correo </label>
-      <input type="email" name="correo" id=""  class="form-control" placeholder=""
-        aria-describedby="helpId" formControlName="correo" value="">
+      <input type="email" name="correo" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="correo" value="">
 
       <label class="col-sm-3 col-form-label is-required">telefono</label>
-      <input type="number" name="telefono" id=""  class="form-control" placeholder=""
-        aria-describedby="helpId" formControlName="telefono" value="">
+      <input type="number" name="telefono" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="telefono" value="">
 
       <label class="col-sm-3 col-form-label is-required">linkedin</label>
-      <input type="text" name="linkedin" id=""  class="form-control" placeholder=""
-        aria-describedby="helpId" formControlName="linkedin" value="">
+      <input type="text" name="linkedin" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="linkedin" value="">
 
       <label class="col-sm-3 col-form-label is-required">discord</label>
-      <input type="text" name="discord" id=""  class="form-control" placeholder=""
-        aria-describedby="helpId" formControlName="discord" value="">
-    </form> 
+      <input type="text" name="discord" id="" class="form-control" placeholder="" aria-describedby="helpId"
+        formControlName="discord" value="">
+    </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" 
-    (click)="d('Cross click')"> Cancelar 
+    <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
     </button>
-    <button class="btn btn-danger"  
-    (click)="guardar()"> Actualizar 
+    <button class="btn btn-danger" (click)="guardar()"> Actualizar
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #contactoDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Eliminar elemento</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>
+      ¿Estás seguro de que deseas eliminar este elemento?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">
+      Cancelar
+    </button>
+    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">
+      Eliminar
     </button>
   </div>
 </ng-template>

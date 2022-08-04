@@ -13,13 +13,13 @@ import { LoginUsuario } from '../Interface/Login-Usuario';
 })
 export class AuthService {
 
-
+  // https://porfoliobeto.herokuapp.com
   constructor(private http:HttpClient) { }
 
    public nuevo(registro: NuevoUsuario):Observable<any>{
-    return this.http.post<any>("https://porfoliobeto.herokuapp.com/auth/nuevo",registro);
+    return this.http.post<any>("http://localhost:8080/auth/nuevo",registro);
    }
    public login(login: LoginUsuario):Observable<JWT_DTO>{
-    return this.http.post<any>("https://porfoliobeto.herokuapp.com/auth/login",login);
+    return this.http.post<any>("http://localhost:8080/auth/login",login);
    }
 }

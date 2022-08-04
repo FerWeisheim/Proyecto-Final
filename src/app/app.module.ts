@@ -35,6 +35,9 @@ import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule}from '@angular/platform-browser/animations'
 import { interceptorProvider } from './interceptors/prod-interceptors.service';
 import { InicioComponent } from './Components/inicio/inicio.component';
+import { ProyectoComponent } from './Components/proyecto/proyecto.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { ExperienciaComponent } from './Components/experiencia/experiencia.component';
 
 
 
@@ -62,6 +65,8 @@ import { InicioComponent } from './Components/inicio/inicio.component';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
+    ProyectoComponent,
+    ExperienciaComponent,
     
 
 
@@ -78,6 +83,7 @@ import { InicioComponent } from './Components/inicio/inicio.component';
    FormsModule,
    NgbModule,
    BrowserAnimationsModule,
+   IvyCarouselModule,
    ToastrModule.forRoot()
 
 
