@@ -1,4 +1,4 @@
-.educacion .row p{
+.experiencia .row p{
     border-left: 2px solid rgb(0, 234, 238);
     left: 5px;
     position: relative;
@@ -6,7 +6,7 @@
     
     }
     
-    .educacion .row p:before{
+    .experiencia .row p:before{
         content: '';
         width: 10px;
         height: 10px;

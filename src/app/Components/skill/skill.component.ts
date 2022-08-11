@@ -175,7 +175,6 @@ actualizarsoft(){
     });
   }
   onDelete() {
-
     this.skillS.deletePorId(this.deleteId)
       .subscribe((resul) => {
         this.s= resul

@@ -1,4 +1,4 @@
-<section id="educacion">
+<section id="experiencia">
   <div class="container-fluid">
     <div class="card">
       <div class="row">
@@ -10,14 +10,14 @@
         </div>
       </div>
       <div>
-        <div class="educacion">
+        <div class="experiencia">
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10" *ngFor="let experiencia of experiencia">
               <div class="d-flex justify-content-between">
                 <span></span>
                 <div class=" botones">
                   <i class="fas fa-edit" (click)="openEdit(editarExperiencia,experiencia)"></i>
-                  <i class="fas fa-trash-alt"></i>
+                  <i class="fas fa-trash-alt" (click)="openDelete(experienciaDelete,experiencia)" ></i>
                 </div>
               </div>
               <div class="card" >
@@ -150,4 +150,34 @@
     </div>
   </div>
 
+</ng-template>
+
+
+<ng-template #experienciaDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Eliminar elemento</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>
+      ¿Estás seguro de que deseas eliminar este elemento?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="modal.close('Save click')"
+    >
+      Cancelar
+    </button>
+    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">
+      Eliminar
+    </button>
+  </div>
 </ng-template>

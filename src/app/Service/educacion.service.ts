@@ -23,6 +23,9 @@ export class EducacionService {
     getPorId(id:number){
        return this.http.get<Educacion>(`http://localhost:8080/educacion/traer/${id}`);
    }
+    deletePorId(id:number){
+       return this.http.delete<Educacion>(`http://localhost:8080/educacion/borrar/${id}`);
+   }
      
 
 }

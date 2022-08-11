@@ -17,17 +17,13 @@ import { YoComponent } from './Components/yo/yo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SkillComponent } from './Components/skill/skill.component';
-import { ContactoEditarComponent } from './Plantillas-Editar/contacto-editar/contacto-editar.component';
+
 import { ContactoServiceService } from './Service/contacto-service.service';
 import { PersonaServiceService } from './Service/persona-service.service';
-import { SkillEditarComponent } from './Plantillas-Editar/skill-editar/skill-editar.component';
-import { SkillAgregarComponent } from './Plantillas-Editar/skill-agregar/skill-agregar.component';
-import { ContactoAgregarComponent } from './Plantillas-Editar/contacto-agregar/contacto-agregar.component';
+
 import { DeleteComponent } from './Delete/delete/delete.component';
-import { EducacionAgregarComponent } from './Plantillas-Editar/educacion-agregar/educacion-agregar.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
-import { PersonaEditarComponent } from './Plantillas-Editar/persona-editar/persona-editar.component';
-import { EducacionEditarComponent } from './Plantillas-Editar/educacion-editar/educacion-editar.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './Auth/login/login.component';
 import { RegistroComponent } from './Auth/registro/registro.component';
@@ -48,20 +44,15 @@ import { ExperienciaComponent } from './Components/experiencia/experiencia.compo
     AppComponent,
     HomeComponent,
     ContactoComponent,
-    EditarcontactoComponent,
+
     PrincipalComponent,
     SobreMiComponent,
     EducacionComponent,
     YoComponent,
     SkillComponent,
-    ContactoEditarComponent,
-    SkillEditarComponent,
-    SkillAgregarComponent,
-    ContactoAgregarComponent,
+
     DeleteComponent,
-    EducacionAgregarComponent,
-    PersonaEditarComponent,
-    EducacionEditarComponent,
+
     LoginComponent,
     RegistroComponent,
     InicioComponent,

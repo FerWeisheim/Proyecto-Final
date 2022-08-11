@@ -17,6 +17,7 @@ export class ExperienciaComponent implements OnInit {
   isAdmin=false;
   roles:string[];
   experienciaFormulario!:FormGroup;
+  private deleteId:number;
 
   experiencia:Experiencia[]=[];
   Experiencia:Experiencia = new Experiencia(0,"","","","","");
@@ -51,9 +52,6 @@ export class ExperienciaComponent implements OnInit {
       });
     }
 
-    
-
-
     openEdit(targetModal: any, expe:Experiencia ) {
       this.modalService.open(targetModal, {
         centered: true,
@@ -71,6 +69,23 @@ export class ExperienciaComponent implements OnInit {
       // console.log(this.educacio.value)
     }
   
+    openDelete(targetModal, exp: Experiencia) {
+      this.deleteId = exp.id;
+      this.modalService.open(targetModal, {
+        backdrop: 'static',
+      });
+    }
+    onDelete() {
+      this.ExperienciaService.BorrarPorId(this.deleteId)
+        .subscribe((resul) => {
+          this.Experiencia= resul
+          this.ngOnInit();
+          this.modalService.dismissAll();
+        });
+    };
+  
+
+
 // ============================
 
 

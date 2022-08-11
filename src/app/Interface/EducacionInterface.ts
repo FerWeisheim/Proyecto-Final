@@ -1,8 +1,8 @@
 export class Educacion{
     id: number;
-   nombre:String;
+   nombre:string;
    descripcion:string;
-   titulo:String;
+   titulo:string;
    fechaIni:string;
    fechaFin:string;
 

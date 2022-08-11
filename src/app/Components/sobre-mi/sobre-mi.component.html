@@ -1,17 +1,22 @@
 <section id="sobre-mi" class="">
     <div class="container-fluid">
         <div class="card">
-            <div class="row">
+            <div class="row"  *ngFor="let sobre of yo">
                 <div class="d-flex justify-content-between">
                     <h2>Sobre mi</h2>
                     <div class=" botones" *ngIf="isAdmin">
-                        <i class="fas fa-edit" (click)="openEdit(editarSobreMi)"></i>
+                        
+                        <i class="fas fa-edit" (click)="openEdit(editarSobreMi,sobre)"></i>
                         <i class="fas fa-trash-alt"></i>
+            
                     </div>
                 </div>
                 <div class="row sobre-mi">
-                    <p>as
+                   
+                    <p>
+                        {{sobre.descripcion}}
                     </p>
+                
                 </div>
             </div>
         </div>
@@ -30,9 +35,8 @@
     <div class="modal-body"> 
         <label class=" d-flex justify-content-center"> Sobre Mi </label>
         <form [formGroup]="sobreMi">   
-            <!-- <textarea name="sobremi" id="" formControlName="sobremi" rows="5" cols="10"></textarea> -->
-            <textarea name="sobrmi" formControlName="sobremi" id="mitextarea" rows="5" cols="50" style="resize: both; max-width: 470px; max-height: 200px;">
-                </textarea>
+            <textarea name="descripcion" formControlName="descripcion" id="mitextarea" rows="5" cols="50" style="resize: both; max-width: 470px; max-height: 200px;">
+            </textarea>
         </form>
     </div>
     <div class="modal-footer">
