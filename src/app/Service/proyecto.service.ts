@@ -11,19 +11,19 @@ export class ProyectoService {
   constructor(private http:HttpClient) { }
 
   public getProyecto():Observable<Proyecto[]>{
-    return this.http.get<Proyecto[]>( "http://localhost:8080/proyecto/traer");
+    return this.http.get<Proyecto[]>( "https://porfoliobeto.herokuapp.com/proyecto/traer");
   }
    agregar(proyecto:Proyecto){
-     return this.http.post<Proyecto>("http://localhost:8080/proyecto/crear",proyecto);
+     return this.http.post<Proyecto>("https://porfoliobeto.herokuapp.com/proyecto/crear",proyecto);
   }
   actualizar(proyecto:Proyecto){
-     return this.http.put<Proyecto>(`http://localhost:8080/proyecto/editar/${proyecto.id}`,proyecto);
+     return this.http.put<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/editar/${proyecto.id}`,proyecto);
      }
     getPorId(id:number){
-       return this.http.get<Proyecto>(`http://localhost:8080/proyecto/traer/${id}`);
+       return this.http.get<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/traer/${id}`);
    }
     BorrarPorId(id:number){
-       return this.http.delete<Proyecto>(`http://localhost:8080/proyecto/borrar/${id}`);
+       return this.http.delete<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/borrar/${id}`);
    }
      
 
