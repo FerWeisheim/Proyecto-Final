@@ -128,4 +128,5 @@ export class ContactoComponent implements OnInit {
         this.modalService.dismissAll();
       });
   }
+
 }

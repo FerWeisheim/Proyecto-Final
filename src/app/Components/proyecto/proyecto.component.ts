@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Proyecto } from 'src/app/Interface/ProyectoInterface';
 import { ProyectoService } from 'src/app/Service/proyecto.service';
+import { TokenService } from 'src/app/Service/token.service';
 
 @Component({
   selector: 'app-proyecto',
@@ -14,9 +15,12 @@ import { ProyectoService } from 'src/app/Service/proyecto.service';
 export class ProyectoComponent implements OnInit {
   proyecto: FormGroup;
   Proyecto:Proyecto[]=[];
-  proyectoClass:Proyecto = new Proyecto(0,"","","");
+  proyectoClass:Proyecto = new Proyecto(0,"","","","");
   private deleteId:number;
-  constructor(private form:FormBuilder,private http:HttpClient,private modalService: NgbModal,private proyectoService:ProyectoService) { }
+  private a:string;
+  private roles:string[];
+  isAdmin=false;
+  constructor(private form:FormBuilder,private http:HttpClient,private modalService: NgbModal,private proyectoService:ProyectoService,private tokenService:TokenService) { }
 
   ngOnInit(): void {
     this.proyectoService.getProyecto().subscribe(res=>{this.Proyecto=res})
@@ -25,7 +29,9 @@ export class ProyectoComponent implements OnInit {
     proyecto:['',Validators.required],
     descripcion:['',Validators.required],
     urlSourceCode:['',Validators.required],
+    img:['',Validators.required],
     })
+    this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
   }
 
 
@@ -49,6 +55,7 @@ export class ProyectoComponent implements OnInit {
       proyecto:pro.proyecto,
       descripcion:pro.descripcion,
       urlSourceCode:pro.urlSourceCode,
+      img:pro.img
     });
   }
 
@@ -66,12 +73,17 @@ export class ProyectoComponent implements OnInit {
         this.modalService.dismissAll();
       });
   };
+  obtener(e:any){  
+    this.a=e[0].base64;
+    this.proyecto.value.img=this.a;
+    }
 
 
 
   guardar(){
     this.proyectoService.agregar(this.proyecto.value).subscribe(res=>{this.proyectoClass=res,this.ngOnInit();}
     );
+    console.log(this.proyecto.value);
     this.modalService.dismissAll(); 
   }
   actualizar(){

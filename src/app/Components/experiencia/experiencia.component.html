@@ -4,7 +4,7 @@
       <div class="row">
         <div class="d-flex justify-content-between">
           <h2>Experiencia Laboral</h2>
-          <div class="botones">
+          <div class="botones" *ngIf="isAdmin">
             <i class="fas fa-plus-circle" (click)="openExperiencia(agregarExperiencia)"></i>
           </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10" *ngFor="let experiencia of experiencia">
               <div class="d-flex justify-content-between">
                 <span></span>
-                <div class=" botones">
+                <div class=" botones" *ngIf="isAdmin">
                   <i class="fas fa-edit" (click)="openEdit(editarExperiencia,experiencia)"></i>
                   <i class="fas fa-trash-alt" (click)="openDelete(experienciaDelete,experiencia)" ></i>
                 </div>

@@ -4,7 +4,7 @@
         <div class="row">
           <div class="d-flex justify-content-between">
             <h2>Proyectos</h2>
-            <div class="botones">
+            <div class="botones" *ngIf="isAdmin">
               <i class="fas fa-plus-circle" (click)="openEdit(agregarProyecto)"></i>
             </div>
           </div>
@@ -16,17 +16,19 @@
               <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10" *ngFor="let proyecto of Proyecto">
                 <div class="d-flex justify-content-between">
                   <span></span>
-                  <div class=" botones">
+                  <div class=" botones" *ngIf="isAdmin">
                     <i class="fas fa-edit" (click)="openProyect(editarProyecto,proyecto)"></i>
                     <i class="fas fa-trash-alt" (click)="openDelete(proyectoDelete,proyecto)"> </i>
                   </div>
                 </div>
                 <div class="card">
-                  <!-- <img src="" class="card-img-top" alt="..."> -->
+                  <img src="{{proyecto.img}}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <p class="card-text">
-                    Proyecto:{{proyecto.proyecto}}
+                     Proyecto:{{proyecto.proyecto}}
+                     <br>
                      Descripcion:{{proyecto.descripcion}}
+                     <br>
                      Url:{{proyecto.urlSourceCode}}
                     </p>
                   </div>
@@ -57,7 +59,10 @@
                 formControlName="descripcion" value="">
             <label class="col-sm-3 col-form-label is-required">Url</label>
             <input type="text" name="url" id="" class="form-control" placeholder="" aria-describedby="helpId"
-                formControlName="urlSourceCode" value="">
+              formControlName="urlSourceCode" value="">
+              <label class="col-sm-3 col-form-label is-required">img</label>
+              <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                  (onFileChanged)="obtener($event)" class="form-control" placeholder="">
         </form>
     </div>
     <div class="modal-footer">
@@ -85,6 +90,9 @@
                 formControlName="descripcion">
             <label class="col-sm-3 col-form-label is-required">Url</label>
             <input type="text" name="url" id="" class="form-control" formControlName="urlSourceCode" >
+            <label class="col-sm-3 col-form-label is-required">img</label>
+              <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                  (onFileChanged)="obtener($event)" class="form-control" placeholder="">
         </form>
     </div>
     <div class="modal-footer">

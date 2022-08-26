@@ -6,12 +6,12 @@
       </button>
       <div *ngIf="!isLogged">
       <div class="d-flex justify-content-between">
-        <i class="fa fa-sign-in" [routerLink]="['/login']"> </i>
+        <i class="fa fa-sign-in" [routerLink]="['/login']" style="background-color: red;"> </i>
       </div>
     </div>
     <div *ngIf="isLogged">
       <div class="d-flex justify-content-between">
-        <i class="fa fa-sign-out" (click)="salir()"> </i>
+        <i class="fa fa-sign-out" (click)="salir()" style="background-color: red;"> </i>
     </div>
   </div>
     </div>

@@ -38,7 +38,7 @@ export class ExperienciaComponent implements OnInit {
     fechaFin:['',Validators.required],
     })
     this.roles=this.tokenService.getAuthorities();
-    this.roles.forEach(rol=> {if(rol==='ROL_ADMIN'){this.isAdmin=true;} })
+    this.roles = this.tokenService.getAuthorities();this.roles.forEach(rol => { if (rol === 'ROL_ADMIN') { this.isAdmin = true; }})
     }
       
     // funciones del modal
