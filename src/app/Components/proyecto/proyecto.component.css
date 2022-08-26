@@ -1,0 +1,29 @@
+/* .proyecto{
+    width: 10rem;
+    height: 10rem;
+}
+h3{
+    color: 	white;
+} */
+.proyecto .row p{
+    border-left: 2px solid rgb(0, 234, 238);
+    left: 5px;
+    position: relative;
+    margin-bottom: 10px;
+    
+    }
+    
+    .proyecto .row p:before{
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: rgb(0, 234, 238);
+        position: absolute;
+        margin-top: -6px;
+        left: -6.2px;
+        border-radius: 10px;
+    }
+    .img{
+        width: 20px;
+        right:20px;
+    }

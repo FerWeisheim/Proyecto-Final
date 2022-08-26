@@ -1,19 +1,19 @@
-h2{
-    text-decoration:underline rgb(195, 147, 242);
-}
+
 .card{
      width: 100%;
      margin-bottom: 15px;
-     border-radius: 4px;
-     border-color: transparent;
-     background-color: #FCF6E2;
-     color: black;
-
+     border: 0;
+   
+     background-color:white;
+     color: rgb(0, 0, 0);
  }
+h4{
+    color: black;
+}
 .circulo{
     display: flex;
     margin-bottom: 2%;
-    border: 2px black solid; 
+    border: 2px rgb(0, 187, 255) solid; 
     width: 100px;
     height: 100px; 
     border-radius: 100px;
@@ -24,9 +24,31 @@ h2{
 }
 .botones>i{
     padding: 2px;
-    font-size: small;
-}
+    font-size: small;}
  
 body{
-    background-color: #FCF6E2;
+    background-color: white;
+}
+html, body { height: 100%; }
+
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+
+.modal-header{
+    margin-top: -1px;
+    background-color:white;
+    color: white;
+}
+.modal-body{
+    color: black;
+    margin-top: -1px;
+    background-color: white;
+}
+.modal-footer{
+    margin-top: -1px;
+    background-color: white;
+    color:black;
+}
+
+.boton{
+    margin: 10px;
 }

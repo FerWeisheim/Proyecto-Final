@@ -1,25 +1,49 @@
 <section id="sobre-mi" class="">
     <div class="container-fluid">
         <div class="card">
-            <div class="row">
+            <div class="row"  *ngFor="let sobre of yo">
                 <div class="d-flex justify-content-between">
                     <h2>Sobre mi</h2>
-                    <div class=" botones">
-                        <i class="fas fa-edit"></i>
+                    <div class=" botones" *ngIf="isAdmin">
+                        
+                        <i class="fas fa-edit" (click)="openEdit(editarSobreMi,sobre)"></i>
                         <i class="fas fa-trash-alt"></i>
+            
                     </div>
                 </div>
                 <div class="row sobre-mi">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, animi explicabo
-                        quod
-                        repudiandae unde, quae labore fugiat quasi ratione praesentium eius
-                        necessitatibus ipsum
-                        ducimus, porro optio perferendis ullam debitis delectus.
+                   
+                    <p>
+                        {{sobre.descripcion}}
                     </p>
-          
-               
+                
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+<ng-template #editarSobreMi let-modal let-c="close" let-d="dismiss">
+     
+    <div class="modal-header">
+        <h4 class="modal-title d-flex justify-content-center">Editar Sobre Mi</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body"> 
+        <label class=" d-flex justify-content-center"> Sobre Mi </label>
+        <form [formGroup]="sobreMi">   
+            <textarea name="descripcion" formControlName="descripcion" id="mitextarea" rows="5" cols="50" style="resize: both; max-width: 470px; max-height: 200px;">
+            </textarea>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="actualizar()"> Guardar
+        </button>
+    </div>
+
+</ng-template>

@@ -1,14 +1,14 @@
 export class Skill {
     id: number;
-    nombre:String;
+    nombre:string;
     nivel:number;
- 
-constructor(id:number,nombre:String,nivel:number)
+    img:string;
+   
+constructor(id:number,nombre:string,nivel:number,img:string)
     {
         this.id=id;
         this.nombre=nombre;
         this.nivel=nivel;
-      
-    
+        this.img=img;
     }
     }

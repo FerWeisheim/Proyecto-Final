@@ -1,0 +1,183 @@
+<section id="experiencia">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="row">
+        <div class="d-flex justify-content-between">
+          <h2>Experiencia Laboral</h2>
+          <div class="botones" *ngIf="isAdmin">
+            <i class="fas fa-plus-circle" (click)="openExperiencia(agregarExperiencia)"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="experiencia">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10" *ngFor="let experiencia of experiencia">
+              <div class="d-flex justify-content-between">
+                <span></span>
+                <div class=" botones" *ngIf="isAdmin">
+                  <i class="fas fa-edit" (click)="openEdit(editarExperiencia,experiencia)"></i>
+                  <i class="fas fa-trash-alt" (click)="openDelete(experienciaDelete,experiencia)" ></i>
+                </div>
+              </div>
+              <div class="card" >
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <p class="card-text">
+                    Empresa:{{experiencia.empresa}}
+                    Puesto:{{experiencia.puesto}}
+                    Descripcion:{{experiencia.descripcion}}
+                    Fecha Inicio:{{experiencia.fechaIni}}
+                    Fecha Fin:{{experiencia.fechaFin}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #agregarExperiencia let-modal let-c="close" let-d="dismiss">
+
+  <div class="modal-header">
+    <h4 class="modal-title">Agregar Experiencia </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="experienciaFormulario">
+
+      <div class="form-group">
+        <label for="nombre">empresa</label>
+        <div class="input-group">
+          <input formControlName="empresa" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">descripcion</label>
+        <div class="input-group">
+          <input formControlName="descripcion" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="titulo">puesto</label>
+        <div class="input-group">
+          <input formControlName="puesto" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaIni">Fecha Inicio</label>
+        <div class="input-group">
+          <input type="date" formControlName="fechaIni" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaFin">Fecha Fin</label>
+        <div class="input-group">
+          <input type="date" formControlName="fechaFin" class="form-control">
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger" (click)="guardar()"> Guardar </button>
+    <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+    </button>
+  </div>
+</ng-template>
+
+
+<!-- modal editar experiencia -->
+
+<ng-template #editarExperiencia let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Editar Experiencia</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')">
+      <!-- <span aria-hidden="true"> &times; </span> -->
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="experienciaFormulario">
+
+      <div class="form-group">
+        <label for="nombre">empresa</label>
+        <div class="input-group">
+          <input formControlName="empresa" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">descripcion</label>
+        <div class="input-group">
+          <input formControlName="descripcion" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="titulo">puesto</label>
+        <div class="input-group">
+          <input formControlName="puesto" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaIni">Fecha Inicio</label>
+        <div class="input-group">
+          <input type="date" formControlName="fechaIni" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaFin">Fecha Fin</label>
+        <div class="input-group">
+          <input type="date" formControlName="fechaFin" class="form-control">
+        </div>
+      </div>
+    </form>
+
+    <div class="modal-footer">
+      <button class="btn btn-danger" (click)="actualizar()"> Actualizar </button>
+      <button type="button" class="btn btn-danger"> Cerrar </button>
+    </div>
+  </div>
+
+</ng-template>
+
+
+<ng-template #experienciaDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Eliminar elemento</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>
+      ¿Estás seguro de que deseas eliminar este elemento?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="modal.close('Save click')"
+    >
+      Cancelar
+    </button>
+    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">
+      Eliminar
+    </button>
+  </div>
+</ng-template>

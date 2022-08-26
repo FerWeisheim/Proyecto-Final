@@ -1,15 +1,17 @@
 export class Educacion{
-    id?: number;
-   correo:String;
-   telefono:Number;
-   linkedin:String;
-   discord:String;
+    id: number;
+   nombre:string;
+   descripcion:string;
+   titulo:string;
+   fechaIni:string;
+   fechaFin:string;
 
-   constructor(id:number,correo:string,telefono:number,linkedin:string,discord:string){
-   this.id=id;
-   this.correo=correo;
-   this.telefono=telefono;
-   this.linkedin=linkedin;
-   this.discord=discord;
+   constructor(id:number,nombre:string,descripcion:string,titulo:string,fechaIni:string,fechaFin:string){
+       this.id=id;
+       this.nombre=nombre;
+       this.descripcion=descripcion;
+       this.titulo=titulo;
+       this.fechaIni=fechaIni;
+       this.fechaFin=fechaFin;
    }
 }

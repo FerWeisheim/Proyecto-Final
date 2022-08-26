@@ -1,26 +1,67 @@
 <section id="baner-foto">
     <div class="container-fluid">
         <div class="card" >
-            <img src="../../../assets/img/q.webp" class="card-img-top" id="discord" alt="...">
+            <img src="../../../assets/img/baneer.jpg" class="card-img-top" id="discord" alt="...">
            
-            <div *ngFor="let person of persona">
+            <div *ngFor="let person of per">
                 
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
-                        <div class="botones">
-                            <i class="fas fa-edit">
+                        <div class="botones" *ngIf="isAdmin">
+                            <i class="fas fa-edit" (click)="openEdit(editarPersona,person)">
+
                             </i>
-                            <i class="fas fa-trash-alt"></i>
+                           
+                            <!-- (click)="editar(person)"
+                            [routerLink]="['/editar/persona']" >-->
+                            <i class="fas fa-trash-alt"></i> 
                         </div>
                     </div>
-                    <img src="../../../assets/img/yo.jpg" alt="" id="yo" class="circulo">
+                    <img src="{{person.img}}" alt="" id="yo" class="circulo">
                     <div class="datos">
                         <h5 class="card-title"></h5>
                         <p class="card-text">{{person.nombre}} {{person.apellido}}</p>
                         <p class="card-text">{{person.titulo}}</p>
                     </div>
+                    
                 </div>
             </div>
+            <!-- <i class="fas fa-trash-alt" [routerLink]="['/agregar/persona']"></i> -->
         </div>
     </div>
 </section>
+
+<!-- EDITAR MODAL PERSONA -->
+<ng-template #editarPersona let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title2">Editar Persona</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')">
+          <!-- <span aria-hidden="true"> &times; </span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="perso">
+          <label class="col-sm-3 col-form-label is-required">nombre </label>
+          <input type="text" name="nombre" id="" class="form-control" placeholder="" aria-describedby="helpId"
+              formControlName="nombre" value="">
+              <label class="col-sm-3 col-form-label is-required">apellido </label>
+              <input type="text" name="apellido" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                  formControlName="apellido" value="">
+                  <label class="col-sm-3 col-form-label is-required">titulo </label>
+                  <input type="text" name="titulo" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                      formControlName="titulo" value="">
+          
+          <label class="col-sm-3 col-form-label is-required">img</label>
+          <input type="file" alife-file-to-base64  name="file"
+          (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+
+      </form>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+      </button>
+      <button class="btn btn-danger" (click)="actualizar()"> Actualizar
+      </button>
+  </div>
+
+</ng-template>

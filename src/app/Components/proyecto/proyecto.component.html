@@ -1,0 +1,134 @@
+<section id="proyecto">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="row">
+          <div class="d-flex justify-content-between">
+            <h2>Proyectos</h2>
+            <div class="botones" *ngIf="isAdmin">
+              <i class="fas fa-plus-circle" (click)="openEdit(agregarProyecto)"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="proyecto">
+          
+            <div class="row">
+              <div class="col-xl-3 col-lg-4 col-md-6 col-sm-10" *ngFor="let proyecto of Proyecto">
+                <div class="d-flex justify-content-between">
+                  <span></span>
+                  <div class=" botones" *ngIf="isAdmin">
+                    <i class="fas fa-edit" (click)="openProyect(editarProyecto,proyecto)"></i>
+                    <i class="fas fa-trash-alt" (click)="openDelete(proyectoDelete,proyecto)"> </i>
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="{{proyecto.img}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">
+                     Proyecto:{{proyecto.proyecto}}
+                     <br>
+                     Descripcion:{{proyecto.descripcion}}
+                     <br>
+                     Url:{{proyecto.urlSourceCode}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<ng-template #agregarProyecto let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Agregar Proyecto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="proyecto">
+            <label class="col-sm-3 col-form-label is-required">Proyecto</label>
+            <input type="text" name="proyecto" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="proyecto" value="">
+            <label class="col-sm-3 col-form-label is-required">Descripcion</label>
+            <input type="text" name="descripcion" id="" class="form-control" placeholder="" aria-describedby="helpId"
+                formControlName="descripcion" value="">
+            <label class="col-sm-3 col-form-label is-required">Url</label>
+            <input type="text" name="url" id="" class="form-control" placeholder="" aria-describedby="helpId"
+              formControlName="urlSourceCode" value="">
+              <label class="col-sm-3 col-form-label is-required">img</label>
+              <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                  (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="guardar()"> Guardar
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #editarProyecto let-modal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Editar Proyecto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="proyecto">
+            <label class="col-sm-3 col-form-label is-required">Proyecto</label>
+            <input type="text" name="proyecto" id="" class="form-control"
+                formControlName="proyecto">
+            <label class="col-sm-3 col-form-label is-required">Descripcion</label>
+            <input type="text" name="descripcion" id="" class="form-control" 
+                formControlName="descripcion">
+            <label class="col-sm-3 col-form-label is-required">Url</label>
+            <input type="text" name="url" id="" class="form-control" formControlName="urlSourceCode" >
+            <label class="col-sm-3 col-form-label is-required">img</label>
+              <input type="file" alife-file-to-base64 accept="image/png,image/jpg" name="file"
+                  (onFileChanged)="obtener($event)" class="form-control" placeholder="">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="d('Cross click')"> Cancelar
+        </button>
+        <button class="btn btn-danger" (click)="actualizar()"> Actualizar Proyecto
+        </button>
+    </div>
+</ng-template>
+
+
+<ng-template #proyectoDelete let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Eliminar elemento</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>
+      ¿Estás seguro de que deseas eliminar este elemento?
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="modal.close('Save click')"
+    >
+      Cancelar
+    </button>
+    <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">
+      Eliminar
+    </button>
+  </div>
+</ng-template>
