@@ -14,8 +14,8 @@ h4{
     display: flex;
     margin-bottom: 2%;
     border: 2px rgb(0, 187, 255) solid; 
-    width: 100px;
-    height: 100px; 
+    width: 200px;
+    height: 200px; 
     border-radius: 100px;
 }
 .botones :hover{
