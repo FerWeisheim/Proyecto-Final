@@ -11,18 +11,12 @@ import { SobreMi } from './Interface/SobreMiInterface';
 const rutas: Routes=[
 
     {
-        path: 'home',component: PrincipalComponent
-    },
-    {
-        path: 'sobremi',component: SobreMiComponent
+        path: '',component: PrincipalComponent
     },
     {
         path: 'login',component: LoginComponent
-    },
-    {
-        path:'**',pathMatch: 'full', redirectTo: 'home'
     }
-   
+
 ];
 
 export const routing=RouterModule.forRoot(rutas);

@@ -1,11 +1,6 @@
 {
   "hosting": {
     "public": "dist/portafolio-routing/",
-    "rewrites":[{
-      "source":"++",
-      "destination":"/dist/portafolio-routing/index.html"
-    }
-  ],
     "ignore": [
       "firebase.json",
       "**/.*",
