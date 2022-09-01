@@ -1,27 +1,25 @@
-# PortafolioRouting
+![modeloBase](https://user-images.githubusercontent.com/94560950/187820684-c2cffb70-c072-4e41-bfad-e1b688e8b4c4.png)
+# PortafolioArgentinaPrograma
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+Este Proyecto se creo Utilizando [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3, SpringBoot y Mysql.
 
-## Development server
+La base de datos se creo en Java (Netbeans). En las partes que se uso la cardinalidad fueron en las tablas de ROL,USUARIO. En las demas tablas no se aplico cardinalidad y quedo como NoSQL. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Aca dejo algunos EndPoint:
 
-## Code scaffolding
+@GetMapping("tecnologia/traer")
+(Listamos todas las tecnologias de front-end)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@PostMapping("tecnologia/crear")
+(Crea una nueva tecnologia de front-end)
 
-## Build
+@DeleteMapping("tecnologia/borrar/{id}")
+(Borra por ID una tecnologia de front-end)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+@PutMapping({"tecnologia/editar/{id}"})
+(Actualiza por ID una tecnologia de front-end
 
-## Running unit tests
+@GetMapping("tecnologia/traer/{id}")
+(Trae una tecnologia de front-end por ID)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
