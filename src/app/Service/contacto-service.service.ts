@@ -10,22 +10,22 @@ export class ContactoServiceService {
   constructor(private http: HttpClient) { }
 
   public getContacto():Observable<Contacto[]>{
-    return this.http.get<Contacto[]>( "https://porfoliobeto.herokuapp.com/contacto/traer");
+    return this.http.get<Contacto[]>( "backenp-portfolio-production.up.railway.app/contacto/traer");
 }
 
 agregar(contacto:Contacto){
- return this.http.post<Contacto>("https://porfoliobeto.herokuapp.com/contacto/crear",contacto);
+ return this.http.post<Contacto>("backenp-portfolio-production.up.railway.app/contacto/crear",contacto);
 }
 
 actualizar(contacto:Contacto){
-return this.http.put<Contacto>(`https://porfoliobeto.herokuapp.com/contacto/editar/${contacto.id}`,contacto);
+return this.http.put<Contacto>(`backenp-portfolio-production.up.railway.app/contacto/editar/${contacto.id}`,contacto);
 }
 
 getPorId(id:number){
- return this.http.get<Contacto>(`https://porfoliobeto.herokuapp.com/contacto/traer/perfil/${id}`);
+ return this.http.get<Contacto>(`backenp-portfolio-production.up.railway.app/contacto/traer/perfil/${id}`);
 }
 
 deletePorId(id:number){
- return this.http.delete<Contacto>(`https://porfoliobeto.herokuapp.com/contacto/borrar/${id}`);
+ return this.http.delete<Contacto>(`backenp-portfolio-production.up.railway.app/contacto/borrar/${id}`);
 }
 }

@@ -17,9 +17,9 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
    public nuevo(registro: NuevoUsuario):Observable<any>{
-    return this.http.post<any>("https://porfoliobeto.herokuapp.com/auth/nuevo",registro);
+    return this.http.post<any>("backenp-portfolio-production.up.railway.app/auth/nuevo",registro);
    }
    public login(login: LoginUsuario):Observable<JWT_DTO>{
-    return this.http.post<any>("https://porfoliobeto.herokuapp.com/auth/login",login);
+    return this.http.post<any>("backenp-portfolio-production.up.railway.app/auth/login",login);
    }
 }

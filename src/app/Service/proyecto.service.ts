@@ -11,19 +11,19 @@ export class ProyectoService {
   constructor(private http:HttpClient) { }
 
   public getProyecto():Observable<Proyecto[]>{
-    return this.http.get<Proyecto[]>( "https://porfoliobeto.herokuapp.com/proyecto/traer");
+    return this.http.get<Proyecto[]>( "backenp-portfolio-production.up.railway.app/proyecto/traer");
   }
    agregar(proyecto:Proyecto){
-     return this.http.post<Proyecto>("https://porfoliobeto.herokuapp.com/proyecto/crear",proyecto);
+     return this.http.post<Proyecto>("backenp-portfolio-production.up.railway.app/proyecto/crear",proyecto);
   }
   actualizar(proyecto:Proyecto){
-     return this.http.put<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/editar/${proyecto.id}`,proyecto);
+     return this.http.put<Proyecto>(`backenp-portfolio-production.up.railway.app/proyecto/editar/${proyecto.id}`,proyecto);
      }
     getPorId(id:number){
-       return this.http.get<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/traer/${id}`);
+       return this.http.get<Proyecto>(`backenp-portfolio-production.up.railway.app/proyecto/traer/${id}`);
    }
     BorrarPorId(id:number){
-       return this.http.delete<Proyecto>(`https://porfoliobeto.herokuapp.com/proyecto/borrar/${id}`);
+       return this.http.delete<Proyecto>(`backenp-portfolio-production.up.railway.app/proyecto/borrar/${id}`);
    }
      
 

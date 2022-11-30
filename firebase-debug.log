@@ -1,0 +1,103 @@
+[debug] [2022-11-29T03:19:24.070Z] ----------------------------------------------------------------------
+[debug] [2022-11-29T03:19:24.073Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-29T03:19:24.074Z] CLI Version:   11.8.1
+[debug] [2022-11-29T03:19:24.074Z] Platform:      win32
+[debug] [2022-11-29T03:19:24.074Z] Node Version:  v16.14.0
+[debug] [2022-11-29T03:19:24.080Z] Time:          Tue Nov 29 2022 00:19:24 GMT-0300 (hora estándar de Brasilia)
+[debug] [2022-11-29T03:19:24.080Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-29T03:19:24.083Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-11-29T03:19:24.182Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-29T03:19:24.182Z] > authorizing via signed-in user (matiasfer668@gmail.com)
+[debug] [2022-11-29T03:19:24.182Z] [iam] checking project portafolio-argentinaprog-4088d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-29T03:19:24.183Z] > refreshing access token with scopes: []
+[debug] [2022-11-29T03:19:24.184Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-29T03:19:24.184Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-29T03:19:24.425Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-29T03:19:24.425Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-29T03:19:24.432Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions [none]
+[debug] [2022-11-29T03:19:24.432Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions x-goog-quota-user=projects/portafolio-argentinaprog-4088d
+[debug] [2022-11-29T03:19:24.432Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-29T03:19:24.814Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-11-29T03:19:24.815Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-11-29T03:19:25.555Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions 200
+[debug] [2022-11-29T03:19:25.555Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {}
+[debug] [2022-11-29T03:19:25.556Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project portafolio-argentinaprog-4088d:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-11-29T03:19:25.557Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d [none]
+[debug] [2022-11-29T03:19:25.992Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d 403
+[debug] [2022-11-29T03:19:25.992Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-11-29T03:19:25.994Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-11-29T03:19:26.175Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project portafolio-argentinaprog-4088d. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-11-29T03:25:38.909Z] ----------------------------------------------------------------------
+[debug] [2022-11-29T03:25:38.911Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-29T03:25:38.911Z] CLI Version:   11.16.1
+[debug] [2022-11-29T03:25:38.912Z] Platform:      win32
+[debug] [2022-11-29T03:25:38.912Z] Node Version:  v16.14.0
+[debug] [2022-11-29T03:25:38.912Z] Time:          Tue Nov 29 2022 00:25:38 GMT-0300 (hora estándar de Brasilia)
+[debug] [2022-11-29T03:25:38.913Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-29T03:25:38.978Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-29T03:25:38.978Z] > authorizing via signed-in user (matiasfer668@gmail.com)
+[debug] [2022-11-29T03:25:38.978Z] [iam] checking project portafolio-argentinaprog-4088d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-29T03:25:38.980Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions [none]
+[debug] [2022-11-29T03:25:38.980Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions x-goog-quota-user=projects/portafolio-argentinaprog-4088d
+[debug] [2022-11-29T03:25:38.980Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-29T03:25:40.240Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions 200
+[debug] [2022-11-29T03:25:40.240Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {}
+[debug] [2022-11-29T03:25:40.240Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project portafolio-argentinaprog-4088d:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-11-29T03:25:40.241Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d [none]
+[debug] [2022-11-29T03:25:41.733Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d 403
+[debug] [2022-11-29T03:25:41.733Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-11-29T03:25:41.734Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-11-29T03:25:43.183Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project portafolio-argentinaprog-4088d. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-11-30T03:00:34.007Z] ----------------------------------------------------------------------
+[debug] [2022-11-30T03:00:34.008Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-30T03:00:34.009Z] CLI Version:   11.16.1
+[debug] [2022-11-30T03:00:34.009Z] Platform:      win32
+[debug] [2022-11-30T03:00:34.009Z] Node Version:  v16.14.0
+[debug] [2022-11-30T03:00:34.013Z] Time:          Wed Nov 30 2022 00:00:34 GMT-0300 (hora estándar de Brasilia)
+[debug] [2022-11-30T03:00:34.013Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-30T03:00:34.071Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-30T03:00:34.072Z] > authorizing via signed-in user (matiasfer668@gmail.com)
+[debug] [2022-11-30T03:00:34.072Z] [iam] checking project portafolio-argentinaprog-4088d for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-30T03:00:34.073Z] > refreshing access token with scopes: []
+[debug] [2022-11-30T03:00:34.074Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-30T03:00:34.075Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-30T03:00:34.404Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-30T03:00:34.404Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-30T03:00:34.409Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions [none]
+[debug] [2022-11-30T03:00:34.409Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions x-goog-quota-user=projects/portafolio-argentinaprog-4088d
+[debug] [2022-11-30T03:00:34.409Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-30T03:00:35.408Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions 200
+[debug] [2022-11-30T03:00:35.409Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/portafolio-argentinaprog-4088d:testIamPermissions {}
+[debug] [2022-11-30T03:00:35.409Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project portafolio-argentinaprog-4088d:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-11-30T03:00:35.409Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d [none]
+[debug] [2022-11-30T03:00:35.816Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d 403
+[debug] [2022-11-30T03:00:35.816Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/portafolio-argentinaprog-4088d {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-11-30T03:00:35.816Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-11-30T03:00:35.934Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\ferna\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project portafolio-argentinaprog-4088d. Please make sure the project exists and your account has permission to access it.

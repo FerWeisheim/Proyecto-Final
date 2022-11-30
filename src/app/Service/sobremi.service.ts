@@ -11,22 +11,22 @@ export class SobremiService {
   constructor(private http:HttpClient) { }
 
   public getSobreMi():Observable<SobreMi[]>{
-  return this.http.get<SobreMi[]>("https://porfoliobeto.herokuapp.com/sobremi/traer")
+  return this.http.get<SobreMi[]>("backenp-portfolio-production.up.railway.app/sobremi/traer")
   }
 
   agregar(sobremi:SobreMi){
-    return this.http.post<SobreMi>("https://porfoliobeto.herokuapp.com/sobremi/crear",sobremi);
+    return this.http.post<SobreMi>("backenp-portfolio-production.up.railway.app/sobremi/crear",sobremi);
   }
   actualizar(sobremi:SobreMi){
-    return this.http.put<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/editar/${sobremi.id}`,sobremi);
+    return this.http.put<SobreMi>(`backenp-portfolio-production.up.railway.app/sobremi/editar/${sobremi.id}`,sobremi);
   }
   
   getPorId(id:number){
-    return this.http.get<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/traer/${id}`);
+    return this.http.get<SobreMi>(`backenp-portfolio-production.up.railway.app/sobremi/traer/${id}`);
    }
 
   deletePorId(id:number){
-    return this.http.delete<SobreMi>(`https://porfoliobeto.herokuapp.com/sobremi/borrar/${id}`);
+    return this.http.delete<SobreMi>(`backenp-portfolio-production.up.railway.app/sobremi/borrar/${id}`);
    }
 
 

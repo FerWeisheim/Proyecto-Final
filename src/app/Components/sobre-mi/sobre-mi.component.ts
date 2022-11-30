@@ -43,7 +43,6 @@ export class SobreMiComponent implements OnInit {
       centered: true,
       backdrop: 'static',
       size: 'sm'
-
     });
   }
 // ------------------

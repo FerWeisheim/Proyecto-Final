@@ -12,19 +12,19 @@ export class EducacionService {
   
  
   public getEducacion():Observable<Educacion[]>{
-    return this.http.get<Educacion[]>( "https://porfoliobeto.herokuapp.com/educacion/traer");
+    return this.http.get<Educacion[]>( "backenp-portfolio-production.up.railway.app/educacion/traer");
   }
    agregar(educacion:Educacion){
-     return this.http.post<Educacion>("https://porfoliobeto.herokuapp.com/educacion/crear",educacion);
+     return this.http.post<Educacion>("backenp-portfolio-production.up.railway.app/educacion/crear",educacion);
   }
   actualizar(educacion:Educacion){
-     return this.http.put<Educacion>(`https://porfoliobeto.herokuapp.com/educacion/editar/${educacion.id}`,educacion);
+     return this.http.put<Educacion>(`backenp-portfolio-production.up.railway.app/educacion/editar/${educacion.id}`,educacion);
      }
     getPorId(id:number){
-       return this.http.get<Educacion>(`https://porfoliobeto.herokuapp.com/educacion/traer/${id}`);
+       return this.http.get<Educacion>(`backenp-portfolio-production.up.railway.app/educacion/traer/${id}`);
    }
     deletePorId(id:number){
-       return this.http.delete<Educacion>(`https://porfoliobeto.herokuapp.com/educacion/borrar/${id}`);
+       return this.http.delete<Educacion>(`backenp-portfolio-production.up.railway.app/educacion/borrar/${id}`);
    }
      
 

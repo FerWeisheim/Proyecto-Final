@@ -10,20 +10,20 @@ export class SkillServiceService {
 
   constructor(private http:HttpClient) {}
 public getSkill():Observable<Skill[]>{
-  return this.http.get<Skill[]>( "https://porfoliobeto.herokuapp.com/tecnologia/traer");
+  return this.http.get<Skill[]>( "backenp-portfolio-production.up.railway.app/tecnologia/traer");
 }
 agregar(skill:Skill){
-  return this.http.post<Skill>("https://porfoliobeto.herokuapp.com/tecnologia/crear",skill);
+  return this.http.post<Skill>("backenp-portfolio-production.up.railway.app/tecnologia/crear",skill);
  }
  actualizar(skill:Skill){
-  return this.http.put<Skill>(`https://porfoliobeto.herokuapp.com/tecnologia/editar/${skill.id}`,skill);
+  return this.http.put<Skill>(`backenp-portfolio-production.up.railway.app/tecnologia/editar/${skill.id}`,skill);
   }
   getPorId(id:number){
-    return this.http.get<Skill>(`https://porfoliobeto.herokuapp.com/tecnologia/traer/${id}`);
+    return this.http.get<Skill>(`backenp-portfolio-production.up.railway.app/tecnologia/traer/${id}`);
    }
    
   deletePorId(id:number){
-    return this.http.delete<Skill>(`https://porfoliobeto.herokuapp.com/tecnologia/borrar/${id}`);
+    return this.http.delete<Skill>(`backenp-portfolio-production.up.railway.app/tecnologia/borrar/${id}`);
    }
    
   //  agregarBack(skill:Skill){

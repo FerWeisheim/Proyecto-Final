@@ -58,12 +58,6 @@ import { ExperienciaComponent } from './Components/experiencia/experiencia.compo
     InicioComponent,
     ProyectoComponent,
     ExperienciaComponent,
-    
-
-
-   
-  
-
   ],
   imports: [
    BrowserModule,

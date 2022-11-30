@@ -11,19 +11,19 @@ export class ExperienciaService {
   constructor(private http:HttpClient) { }
 
   public getEducacion():Observable<Experiencia[]>{
-    return this.http.get<Experiencia[]>( "https://porfoliobeto.herokuapp.com/experiencia/traer");
+    return this.http.get<Experiencia[]>( "backenp-portfolio-production.up.railway.app/experiencia/traer");
   }
    agregar(experiencia:Experiencia){
-     return this.http.post<Experiencia>("https://porfoliobeto.herokuapp.com/experiencia/crear",experiencia);
+     return this.http.post<Experiencia>("backenp-portfolio-production.up.railway.app/experiencia/crear",experiencia);
   }
   actualizar(experiencia:Experiencia){
-     return this.http.put<Experiencia>(`https://porfoliobeto.herokuapp.com/experiencia/editar/${experiencia.id}`,experiencia);
+     return this.http.put<Experiencia>(`backenp-portfolio-production.up.railway.app/experiencia/editar/${experiencia.id}`,experiencia);
      }
     getPorId(id:number){
-       return this.http.get<Experiencia>(`https://porfoliobeto.herokuapp.com/experiencia/traer/${id}`);
+       return this.http.get<Experiencia>(`backenp-portfolio-production.up.railway.app/experiencia/traer/${id}`);
    }
     BorrarPorId(id:number){
-       return this.http.delete<Experiencia>(`https://porfoliobeto.herokuapp.com/experiencia/borrar/${id}`);
+       return this.http.delete<Experiencia>(`backenp-portfolio-production.up.railway.app/experiencia/borrar/${id}`);
    }
      
 
